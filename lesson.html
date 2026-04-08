@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="aef3fe43ccbc9eb9395d3459f735d1cabffd7280" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개인 악기 레슨 | 베어뮤직 실용음악학원</title>
+  <meta name="description" content="베어뮤직 1:1 개인 악기 레슨 — 드럼, 기타, 건반, 보컬, 베이스. 수준과 목표에 맞는 맞춤형 커리큘럼.">
+  <link rel="icon" type="image/png" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0f0f0f; --gray-50: #f9f8f6; --gray-100: #f0ede8;
+      --gray-200: #e0ddd7; --gray-400: #a09d97; --gray-600: #6b6864;
+      --gray-800: #2c2c2a; --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: var(--gray-800); background: var(--gray-50); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); height: 64px; display: flex; align-items: center; padding: 0 40px; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links li { position: relative; }
+    .nav-links a { font-size: 13px; color: var(--gray-600); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--black); }
+    .nav-links a.active { color: var(--black); font-weight: 700; }
+    .nav-dropdown { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 8px 0; min-width: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 200; margin-top: -4px; padding-top: 4px; }
+    .nav-dropdown::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid var(--gray-200); }
+    .nav-dropdown::after { content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
+    .nav-links li:hover .nav-dropdown { display: block; }
+    .nav-dropdown a { display: block; padding: 9px 18px; font-size: 13px; color: var(--gray-600); text-decoration: none; font-weight: 400; white-space: nowrap; transition: background 0.15s, color 0.15s; }
+    .nav-dropdown a:hover { background: var(--gray-50); color: var(--black); }
+    .nav-dropdown .dropdown-divider { height: 1px; background: var(--gray-100); margin: 6px 0; }
+    .nav-dropdown .dropdown-label { padding: 6px 18px 4px; font-size: 10px; color: var(--gray-400); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+    /* 드롭다운 */
+    .nav-links li { position: relative; }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: #fff;
+      border: 1px solid #e0ddd7;
+      border-radius: 12px;
+      padding: 6px 0;
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      z-index: 200;
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 9px 16px;
+      font-size: 13px;
+      color: #6b6864;
+      text-decoration: none;
+      font-weight: 400;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown a:hover { background: #f9f8f6; color: #0f0f0f; }
+    .nav-dropdown .dropdown-divider { height: 1px; background: #f0ede8; margin: 4px 0; }
+    .nav-dropdown .dropdown-label {
+      padding: 8px 16px 4px;
+      font-size: 10px;
+      color: #a09d97;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    #mobile-menu-btn { display: none; width: 40px; height: 40px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-cta { background: #03C75A; color: #fff; border: none; border-radius: var(--radius-sm); padding: 9px 20px; font-size: 13px; font-family: 'Noto Sans KR', sans-serif; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero { background: var(--black); color: #fff; padding: 72px 40px 64px; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.15; filter: grayscale(20%); }
+    .hero-inner { position: relative; z-index: 1; max-width: 600px; }
+    .hero-label { display: inline-block; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 3px 12px; font-size: 10px; color: #aaa; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 700; line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.5px; }
+    .hero-desc { font-size: 15px; color: #999; font-weight: 300; line-height: 1.8; margin-bottom: 32px; }
+
+    /* INFO CARDS */
+    .info-strip { background: #fff; border-bottom: 1px solid var(--gray-200); padding: 24px 40px; display: flex; gap: 48px; }
+    .info-item { display: flex; flex-direction: column; gap: 4px; }
+    .info-item-label { font-size: 10px; color: var(--gray-400); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+    .info-item-value { font-size: 15px; font-weight: 700; color: var(--gray-800); }
+    .info-item-sub { font-size: 11px; color: var(--gray-400); font-weight: 300; }
+
+    /* SECTION */
+    .section { padding: 64px 40px; }
+    .section-alt { padding: 64px 40px; background: #fff; }
+    .section-label { font-size: 10px; font-weight: 500; color: var(--gray-400); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .section-title { font-size: 26px; font-weight: 700; color: var(--gray-800); margin-bottom: 6px; letter-spacing: -0.3px; }
+    .section-desc { font-size: 14px; color: var(--gray-400); font-weight: 300; margin-bottom: 36px; }
+
+    /* INSTRUMENT CARDS */
+    .instruments-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .instr-card {
+      display: block; text-decoration: none;
+      background: #fff; border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg); overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .instr-card:hover { transform: translateY(-4px); border-color: var(--gray-400); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .instr-thumb { height: 140px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .instr-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+    .instr-thumb-overlay { position: relative; z-index: 1; text-align: center; }
+    .instr-emoji-big { font-size: 36px; display: block; margin-bottom: 6px; }
+    .instr-body { padding: 16px; }
+    .instr-name { font-size: 15px; font-weight: 700; color: var(--gray-800); margin-bottom: 4px; }
+    .instr-sub { font-size: 11px; color: var(--gray-400); font-weight: 300; margin-bottom: 12px; }
+    .instr-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .instr-tag { background: var(--gray-100); border-radius: 4px; padding: 2px 8px; font-size: 10px; color: var(--gray-600); }
+    .instr-link { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--gray-100); font-size: 12px; color: var(--gray-600); font-weight: 500; }
+
+    /* HOW IT WORKS */
+    .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .how-grid::before { content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%; height: 1px; background: var(--gray-200); z-index: 0; }
+    .how-step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
+    .how-num { width: 56px; height: 56px; border-radius: 50%; background: var(--black); color: #fff; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .how-title { font-size: 14px; font-weight: 700; color: var(--gray-800); margin-bottom: 8px; }
+    .how-desc { font-size: 12px; color: var(--gray-400); font-weight: 300; line-height: 1.7; }
+
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .feature-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 28px; }
+    .feature-icon { font-size: 24px; margin-bottom: 14px; display: block; }
+    .feature-title { font-size: 15px; font-weight: 700; color: var(--gray-800); margin-bottom: 8px; }
+    .feature-desc { font-size: 13px; color: var(--gray-600); line-height: 1.8; font-weight: 300; }
+
+    /* PRICE */
+    .price-card { background: var(--black); color: #fff; border-radius: var(--radius-lg); padding: 40px 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .price-left {}
+    .price-label { font-size: 10px; color: #666; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+    .price-amount { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: #fff; line-height: 1; margin-bottom: 6px; }
+    .price-period { font-size: 14px; color: #888; font-weight: 300; margin-bottom: 20px; }
+    .price-includes { display: flex; flex-direction: column; gap: 8px; }
+    .price-include-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #ccc; font-weight: 300; }
+    .price-check { width: 18px; height: 18px; border-radius: 50%; background: #03C75A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 10px; color: #fff; font-weight: 700; }
+    .price-right { display: flex; flex-direction: column; gap: 12px; }
+    .price-info-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-sm); padding: 16px 20px; }
+    .price-info-label { font-size: 10px; color: #666; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .price-info-value { font-size: 14px; color: #fff; font-weight: 500; }
+    .price-info-sub { font-size: 11px; color: #888; font-weight: 300; margin-top: 2px; }
+
+    /* CTA */
+    .cta-bar { background: var(--black); padding: 56px 40px; text-align: center; }
+    .cta-bar-title { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .cta-bar-desc { font-size: 13px; color: #888; font-weight: 300; margin-bottom: 28px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-green { background: #03C75A; color: #fff; border: none; border-radius: var(--radius-sm); padding: 13px 26px; font-size: 13px; font-weight: 700; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-sm); padding: 13px 26px; font-size: 13px; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; text-decoration: none; display: inline-block; }
+
+    /* FOOTER */
+    .footer { background: #fff; padding: 36px 40px; display: flex; align-items: flex-start; justify-content: space-between; border-top: 1px solid #e0ddd7; flex-wrap: wrap; gap: 20px; }
+    .footer-tagline { font-size: 11px; color: #6b6864; font-weight: 300; margin-top: 6px; }
+    .footer-info { font-size: 11px; color: #6b6864; line-height: 2; font-weight: 300; text-align: right; }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; } #mobile-menu-btn { display: none; width: 40px; height: 40px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-cta { display: none; } .nav-links { display: none; }
+      #mobile-menu-btn { display: flex; }
+      .hero { padding: 52px 20px 48px; } .hero-title { font-size: 32px; }
+      .info-strip { padding: 20px; gap: 24px; flex-wrap: wrap; }
+      .section, .section-alt { padding: 48px 20px; }
+      .instruments-grid { grid-template-columns: 1fr 1fr; }
+      .how-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .how-grid::before { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .price-card { grid-template-columns: 1fr; padding: 28px 24px; }
+      .cta-bar { padding: 48px 20px; }
+      .footer { padding: 28px 20px; flex-direction: column; } .footer-info { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.jpg" alt="베어뮤직 실용음악학원" style="height:56px; width:auto; max-width:180px; object-fit:contain;">
+  </a>
+  <ul class="nav-links">
+    <li>
+      <a href="about.html">학원 소개</a>
+      <div class="nav-dropdown">
+        <a href="about.html">About 베어뮤직</a>
+      </div>
+    </li>
+    <li>
+      <a href="lesson.html" class="active">수업 프로그램</a>
+      <div class="nav-dropdown">
+        <div class="dropdown-label">개인 레슨</div>
+        <a href="vocal.html">🎤 보컬</a>
+        <a href="guitar.html">🎸 기타</a>
+        <a href="bass.html">🎵 베이스</a>
+        <a href="piano.html">🎹 건반·피아노</a>
+        <a href="drum.html">🥁 드럼</a>
+      </div>
+    </li>
+    <li>
+      <a href="value.html">가치클래스</a>
+      <div class="nav-dropdown">
+        <a href="value.html#ensemble">🎸 합주 클래스</a>
+        <a href="value.html#group">👥 그룹 클래스</a>
+        <a href="value.html#performance">🎭 공연 클래스</a>
+        <a href="value.html#special">⭐ 특강 클래스</a>
+      </div>
+    </li>
+    <li><a href="scholarship.html">장학제도</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#contact">문의</a></li>
+  </ul>
+  <a href="https://talk.naver.com/ct/w4j779" target="_blank" class="nav-cta">문의하기</a>
+  <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="background:none; border:none; cursor:pointer; padding:8px; flex-direction:column; gap:5px; align-items:center; justify-content:center;" aria-label="메뉴">
+    <span style="display:block; width:22px; height:2px; background:#0f0f0f; border-radius:2px;"></span>
+    <span style="display:block; width:22px; height:2px; background:#0f0f0f; border-radius:2px;"></span>
+    <span style="display:block; width:22px; height:2px; background:#0f0f0f; border-radius:2px;"></span>
+  </button>
+</nav>
+
+<!-- 모바일 메뉴 -->
+<div id="mobile-menu" style="display:none; position:fixed; top:64px; left:0; right:0; background:#fff; border-bottom:1px solid #e0ddd7; z-index:99; padding:16px 24px; box-shadow:0 8px 24px rgba(0,0,0,0.08);">
+  <a href="about.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">학원 소개</a>
+  <a href="lesson.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">수업 프로그램</a>
+  <div style="padding:4px 0 4px 12px; display:flex; flex-direction:column; gap:4px; border-bottom:1px solid #f0ede8;">
+    <a href="vocal.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎤 보컬</a>
+    <a href="guitar.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎸 기타</a>
+    <a href="bass.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎵 베이스</a>
+    <a href="piano.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎹 건반·피아노</a>
+    <a href="drum.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🥁 드럼</a>
+  </div>
+  <a href="value.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">가치클래스</a>
+  <div style="padding:4px 0 4px 12px; display:flex; flex-direction:column; gap:4px; border-bottom:1px solid #f0ede8;">
+    <a href="value.html#ensemble" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎸 합주 클래스</a>
+    <a href="value.html#group" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">👥 그룹 클래스</a>
+    <a href="value.html#performance" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎭 공연 클래스</a>
+    <a href="value.html#special" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">⭐ 특강 클래스</a>
+  </div>
+  <a href="scholarship.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">장학제도</a>
+  <a href="faq.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">FAQ</a>
+  <a href="https://talk.naver.com/ct/w4j779" target="_blank" style="display:block; margin-top:16px; background:#03C75A; color:#fff; text-align:center; padding:14px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none;">네이버 톡톡 문의하기</a>
+</div>
+
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobile-menu');
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('mobile-menu');
+  var btn = document.getElementById('mobile-menu-btn');
+  if (btn && menu && !menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="images/home/hero.jpg" alt="개인 악기 레슨"></div>
+  <div class="hero-inner">
+    <div class="hero-label">1:1 Private Lesson</div>
+    <div class="hero-title">개인 악기 레슨</div>
+    <div class="hero-desc">
+      나의 수준과 목표에 맞게 설계되는 1:1 맞춤 레슨.<br>
+      드럼·기타·베이스·보컬·건반 중 원하는 악기를 선택하세요.
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <div class="info-item">
+    <div class="info-item-label">수업 형태</div>
+    <div class="info-item-value">1:1 개인 레슨</div>
+  </div>
+  <div class="info-item">
+    <div class="info-item-label">수업 시간</div>
+    <div class="info-item-value">60분</div>
+    <div class="info-item-sub">50~55분 수업 + 5~10분 질의응답</div>
+  </div>
+  <div class="info-item">
+    <div class="info-item-label">수강 단위</div>
+    <div class="info-item-value">월 단위</div>
+    <div class="info-item-sub">주 1회 기준 월 4회</div>
+  </div>
+  <div class="info-item">
+    <div class="info-item-label">상담 시간</div>
+    <div class="info-item-value">언제든 가능</div>
+    <div class="info-item-sub">평일·주말 무관, 편하게 연락 주세요</div>
+  </div>
+  <div class="info-item">
+    <div class="info-item-label">등록 상태</div>
+    <div class="info-item-value" style="color:#03C75A;">모집 중</div>
+  </div>
+</div>
+
+<!-- INSTRUMENTS -->
+<section class="section-alt">
+  <div class="section-label">Choose Your Instrument</div>
+  <div class="section-title">배우고 싶은 악기를 선택하세요</div>
+  <div class="section-desc">악기를 클릭하면 세부 커리큘럼과 강사 소개를 확인할 수 있어요</div>
+  <div class="instruments-grid">
+
+    <a href="vocal.html" class="instr-card">
+      <div class="instr-thumb" style="background:#1a1020;">
+        <img src="images/lesson/mic.jpg" alt="보컬">
+        <div class="instr-thumb-overlay">
+          <span class="instr-emoji-big">🎤</span>
+        </div>
+      </div>
+      <div class="instr-body">
+        <div class="instr-name">보컬</div>
+        <div class="instr-sub">팝 · R&B · 뮤지컬</div>
+        <div class="instr-tags">
+          <span class="instr-tag">발성 기초</span>
+          <span class="instr-tag">음정 교정</span>
+          <span class="instr-tag">감정 표현</span>
+        </div>
+        <div class="instr-link">커리큘럼 보기 <span>→</span></div>
+      </div>
+    </a>
+
+    <a href="guitar.html" class="instr-card">
+      <div class="instr-thumb" style="background:#0d1a0d;">
+        <img src="images/lesson/acusticguitar.jpg" alt="기타">
+        <div class="instr-thumb-overlay">
+          <span class="instr-emoji-big">🎸</span>
+        </div>
+      </div>
+      <div class="instr-body">
+        <div class="instr-name">기타</div>
+        <div class="instr-sub">통기타 · 일렉기타</div>
+        <div class="instr-tags">
+          <span class="instr-tag">코드 반주</span>
+          <span class="instr-tag">핑거스타일</span>
+          <span class="instr-tag">솔로</span>
+        </div>
+        <div class="instr-link">커리큘럼 보기 <span>→</span></div>
+      </div>
+    </a>
+
+    <a href="bass.html" class="instr-card">
+      <div class="instr-thumb" style="background:#1a0d0d;">
+        <img src="images/lesson/bass.jpg" alt="베이스">
+        <div class="instr-thumb-overlay">
+          <span class="instr-emoji-big">🎵</span>
+        </div>
+      </div>
+      <div class="instr-body">
+        <div class="instr-name">베이스</div>
+        <div class="instr-sub">기초 ~ 슬랩</div>
+        <div class="instr-tags">
+          <span class="instr-tag">핑거링</span>
+          <span class="instr-tag">슬랩</span>
+          <span class="instr-tag">그루브</span>
+        </div>
+        <div class="instr-link">커리큘럼 보기 <span>→</span></div>
+      </div>
+    </a>
+
+    <a href="piano.html" class="instr-card">
+      <div class="instr-thumb" style="background:#0d1020;">
+        <img src="images/lesson/keys.jpg" alt="건반·피아노">
+        <div class="instr-thumb-overlay">
+          <span class="instr-emoji-big">🎹</span>
+        </div>
+      </div>
+      <div class="instr-body">
+        <div class="instr-name">건반·피아노</div>
+        <div class="instr-sub">코드 반주 · 클래식</div>
+        <div class="instr-tags">
+          <span class="instr-tag">코드 반주</span>
+          <span class="instr-tag">클래식</span>
+          <span class="instr-tag">CCM</span>
+        </div>
+        <div class="instr-link">커리큘럼 보기 <span>→</span></div>
+      </div>
+    </a>
+
+    <a href="drum.html" class="instr-card">
+      <div class="instr-thumb" style="background:#1a1a1a;">
+        <img src="images/lesson/drum.jpg" alt="드럼">
+        <div class="instr-thumb-overlay">
+          <span class="instr-emoji-big">🥁</span>
+        </div>
+      </div>
+      <div class="instr-body">
+        <div class="instr-name">드럼</div>
+        <div class="instr-sub">초 · 중 · 고급</div>
+        <div class="instr-tags">
+          <span class="instr-tag">루디먼트</span>
+          <span class="instr-tag">그루브</span>
+          <span class="instr-tag">합주</span>
+        </div>
+        <div class="instr-link">커리큘럼 보기 <span>→</span></div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-label">How It Works</div>
+  <div class="section-title">수업은 이렇게 진행돼요</div>
+  <div class="section-desc">처음 오시는 분도 걱정 없어요</div>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="how-num">1</div>
+      <div class="how-title">상담 & 레벨 체크</div>
+      <div class="how-desc">처음 방문 시 간단한 상담을 통해 수준과 목표를 파악하고 커리큘럼을 설계합니다</div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">2</div>
+      <div class="how-title">일정 확정</div>
+      <div class="how-desc">원하시는 요일·시간대를 강사와 협의해 고정 레슨 시간을 확정합니다</div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">3</div>
+      <div class="how-title">1:1 맞춤 레슨</div>
+      <div class="how-desc">매주 60분, 수준에 맞는 키워드 레슨 + 맞춤 자료 제공. 모든 수업은 기록·보관됩니다</div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">4</div>
+      <div class="how-title">합주 & 공연</div>
+      <div class="how-desc">개인 레슨과 함께 정기 합주 수업에 참여해 실전 연주 경험을 쌓습니다</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section-alt">
+  <div class="section-label">Why 1:1 Lesson</div>
+  <div class="section-title">개인 레슨의 장점</div>
+  <div class="section-desc">베어뮤직 개인 레슨만의 특별한 점</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">📋</span>
+      <div class="feature-title">수준별 키워드 레슨</div>
+      <div class="feature-desc">입문자부터 재학습자까지, 한 분 한 분의 과정에 맞춰 수업을 진행합니다. 쉬다 오셔도 기억날 수 있게 모든 수업 자료를 기록·보관합니다.</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📄</span>
+      <div class="feature-title">맞춤 자료 제공</div>
+      <div class="feature-desc">일방적인 영상 레슨이 아닌, 원하는 곡의 악보 편곡까지 모든 원생의 자료를 맞춤으로 제공합니다. 출력해드리며 단계마다 업데이트됩니다.</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📈</span>
+      <div class="feature-title">성장 과정 기록</div>
+      <div class="feature-desc">처음의 모습과 지금을 비교할 수 있도록 매 수업 과정을 기록합니다. 눈으로 확인하는 성장이 지속적인 동기가 됩니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="section">
+  <div class="section-label">Pricing</div>
+  <div class="section-title">수강료 안내</div>
+  <div class="section-desc" style="margin-bottom:28px;">하나의 수강료로 모든 수업에 참여할 수 있어요</div>
+  <div class="price-card">
+    <div class="price-left">
+      <div class="price-label">월 수강료 (기준)</div>
+      <div class="price-amount">20만원</div>
+      <div class="price-period">주 1회 · 60분 · 월 4회 기준</div>
+      <div class="price-includes">
+        <div class="price-include-item">
+          <div class="price-check">✓</div>
+          <span>1:1 개인 레슨 (월 4회)</span>
+        </div>
+        <div class="price-include-item">
+          <div class="price-check">✓</div>
+          <span>정기 합주 클래스 포함</span>
+        </div>
+        <div class="price-include-item">
+          <div class="price-check">✓</div>
+          <span>특강 클래스 포함</span>
+        </div>
+        <div class="price-include-item">
+          <div class="price-check">✓</div>
+          <span>맞춤 수업 자료 제공</span>
+        </div>
+      </div>
+    </div>
+    <div class="price-right">
+      <div class="price-info-item">
+        <div class="price-info-label">수업 시간</div>
+        <div class="price-info-value">60분</div>
+        <div class="price-info-sub">50~55분 수업 + 5~10분 질의응답</div>
+      </div>
+      <div class="price-info-item">
+        <div class="price-info-label">스케줄</div>
+        <div class="price-info-value">상담 후 원하는 시간 확정</div>
+        <div class="price-info-sub">평일·주말 무관 — 편하신 시간으로 조율해 드려요</div>
+      </div>
+      <div class="price-info-item">
+        <div class="price-info-label">수업 변경</div>
+        <div class="price-info-value">월 1회 일정 변경 가능</div>
+        <div class="price-info-sub">사전 연락 시 조율 가능</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bar">
+  <div class="cta-bar-title">지금 바로 시작해보세요</div>
+  <div class="cta-bar-desc">상담 먼저도 괜찮아요. 편하게 연락 주세요.<br>📞 055-763-1120 · 010-6370-1120</div>
+  <div class="cta-btns">
+    <a href="https://talk.naver.com/ct/w4j779" target="_blank" class="btn-green" style="background:#03C75A;">네이버 톡톡 문의</a>
+    <a href="index.html" class="btn-outline">메인으로 돌아가기</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <img src="images/logo.jpg" alt="베어뮤직 실용음악학원" style="height:72px; width:auto; margin-bottom:8px; display:block;">
+    <div class="footer-tagline">베어뮤직 실용음악학원 · 진주시 동진로 38, 5층 · 교육청등록번호 제2853호</div>
+  </div>
+  <div>
+    <div class="footer-info">
+      전화: 055-763-1120 · 010-6370-1120<br>
+      운영시간: 평일 14:00 – 22:00 · 토 10:00 – 18:00<br>
+      인스타그램 @bear_music_1120
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+(function() {
+  var timers = {};
+  document.querySelectorAll('.nav-links li').forEach(function(li, i) {
+    var dd = li.querySelector('.nav-dropdown');
+    if (!dd) return;
+    li.addEventListener('mouseenter', function() { clearTimeout(timers[i]); dd.style.display = 'block'; });
+    li.addEventListener('mouseleave', function() { timers[i] = setTimeout(function() { dd.style.display = 'none'; }, 200); });
+    dd.addEventListener('mouseenter', function() { clearTimeout(timers[i]); });
+    dd.addEventListener('mouseleave', function() { timers[i] = setTimeout(function() { dd.style.display = 'none'; }, 200); });
+  });
+})();
+</script>
+</body>
+</html>

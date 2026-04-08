@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="aef3fe43ccbc9eb9395d3459f735d1cabffd7280" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About 베어뮤직 | 베어뮤직 실용음악학원</title>
+  <meta name="description" content="베어뮤직 실용음악학원 소개 — 학원 이야기, 원장 철학, 베어뮤직이 추구하는 것">
+  <link rel="icon" type="image/png" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0f0f0f; --gray-50: #f9f8f6; --gray-100: #f0ede8;
+      --gray-200: #e0ddd7; --gray-400: #a09d97; --gray-600: #6b6864;
+      --gray-800: #2c2c2a; --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: var(--gray-800); background: var(--gray-50); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); height: 64px; display: flex; align-items: center; padding: 0 40px; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--gray-600); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--black); }
+    .nav-links a.active { color: var(--black); font-weight: 700; }
+    /* 드롭다운 */
+    .nav-links li { position: relative; }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: #fff;
+      border: 1px solid #e0ddd7;
+      border-radius: 12px;
+      padding: 6px 0;
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      z-index: 200;
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 9px 16px;
+      font-size: 13px;
+      color: #6b6864;
+      text-decoration: none;
+      font-weight: 400;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown a:hover { background: #f9f8f6; color: #0f0f0f; }
+    .nav-dropdown .dropdown-divider { height: 1px; background: #f0ede8; margin: 4px 0; }
+    .nav-dropdown .dropdown-label {
+      padding: 8px 16px 4px;
+      font-size: 10px;
+      color: #a09d97;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    #mobile-menu-btn { display: none; width: 40px; height: 40px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-cta { background: #03C75A; color: #fff; border: none; border-radius: var(--radius-sm); padding: 9px 20px; font-size: 13px; font-family: 'Noto Sans KR', sans-serif; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      background: var(--black);
+      color: #fff;
+      padding: 80px 40px 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.15; filter: grayscale(30%); }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-label { display: inline-block; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 3px 12px; font-size: 10px; color: #aaa; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.5px; }
+    .hero-sub { font-size: 16px; color: #888; font-weight: 300; margin-bottom: 24px; line-height: 1.7; }
+    .hero-quote {
+      border-left: 2px solid rgba(255,255,255,0.2);
+      padding-left: 20px;
+      margin-top: 32px;
+    }
+    .hero-quote p { font-size: 14px; color: #aaa; line-height: 2; font-weight: 300; }
+    .hero-quote p strong { color: #fff; font-weight: 500; }
+    .hero-right { position: relative; z-index: 1; }
+    .hero-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hero-stat { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 22px 18px; }
+    .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .hero-stat-label { font-size: 11px; color: #777; font-weight: 300; }
+
+    /* SECTION */
+    .section { padding: 72px 40px; }
+    .section-alt { padding: 72px 40px; background: #fff; }
+    .section-dark { padding: 72px 40px; background: var(--black); color: #fff; }
+    .section-label { font-size: 10px; font-weight: 500; color: var(--gray-400); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .section-title { font-size: 28px; font-weight: 700; color: var(--gray-800); margin-bottom: 6px; letter-spacing: -0.3px; }
+    .section-title-white { color: #fff; }
+    .section-desc { font-size: 14px; color: var(--gray-400); font-weight: 300; margin-bottom: 40px; }
+    .section-desc-white { color: #777; }
+
+    /* STORY */
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .story-text p { font-size: 15px; color: var(--gray-600); line-height: 2; font-weight: 300; margin-bottom: 20px; }
+    .story-text p strong { color: var(--gray-800); font-weight: 700; }
+    .story-img { border-radius: var(--radius-lg); overflow: hidden; height: 400px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; }
+    .story-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* VALUES */
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .value-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 32px 28px; }
+    .value-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+    .value-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .value-desc { font-size: 13px; color: #888; line-height: 1.85; font-weight: 300; }
+
+    /* DIRECTOR */
+    .director-card { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); display: grid; grid-template-columns: 280px 1fr; overflow: hidden; }
+    .director-photo { background: #1a1a1a; position: relative; overflow: hidden; min-height: 320px; display: flex; align-items: flex-end; padding: 24px; }
+    .director-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+    .director-photo-info { position: relative; z-index: 1; }
+    .director-photo-name { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .director-photo-role { font-size: 12px; color: #aaa; font-weight: 300; }
+    .director-body { padding: 40px 44px; display: flex; flex-direction: column; justify-content: center; }
+    .director-name { font-size: 22px; font-weight: 700; color: var(--gray-800); margin-bottom: 4px; }
+    .director-role { font-size: 12px; color: var(--gray-400); font-weight: 300; margin-bottom: 24px; }
+    .director-quote {
+      background: var(--gray-50);
+      border-left: 3px solid var(--gray-800);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+    .director-quote p { font-size: 14px; color: var(--gray-800); line-height: 1.8; font-weight: 400; font-style: italic; }
+    .director-bio { font-size: 13px; color: var(--gray-600); line-height: 1.9; font-weight: 300; margin-bottom: 24px; }
+    .career-list { display: flex; flex-direction: column; gap: 8px; }
+    .career-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--gray-600); font-weight: 300; }
+    .career-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gray-400); flex-shrink: 0; margin-top: 7px; }
+
+    /* PROMISES */
+    .promises-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .promise-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 28px; transition: border-color 0.2s; }
+    .promise-card:hover { border-color: var(--gray-400); }
+    .promise-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--gray-800); opacity: 0.1; line-height: 1; margin-bottom: 12px; }
+    .promise-title { font-size: 15px; font-weight: 700; color: var(--gray-800); margin-bottom: 8px; }
+    .promise-desc { font-size: 13px; color: var(--gray-600); line-height: 1.8; font-weight: 300; }
+
+    /* CTA */
+    .cta-bar { background: var(--black); padding: 64px 40px; text-align: center; }
+    .cta-bar-title { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 10px; letter-spacing: -0.3px; }
+    .cta-bar-desc { font-size: 14px; color: #888; font-weight: 300; margin-bottom: 32px; line-height: 1.8; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-green { background: #03C75A; color: #fff; border: none; border-radius: var(--radius-sm); padding: 14px 28px; font-size: 13px; font-weight: 700; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity 0.2s; }
+    .btn-green:hover { opacity: 0.9; }
+    .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-sm); padding: 14px 28px; font-size: 13px; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; text-decoration: none; display: inline-block; }
+
+    /* FOOTER */
+    .footer { background: #fff; padding: 36px 40px; display: flex; align-items: flex-start; justify-content: space-between; border-top: 1px solid #e0ddd7; flex-wrap: wrap; gap: 20px; }
+    .footer-tagline { font-size: 11px; color: #6b6864; font-weight: 300; margin-top: 6px; }
+    .footer-info { font-size: 11px; color: #6b6864; line-height: 2; font-weight: 300; text-align: right; }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; } #mobile-menu-btn { display: none; width: 40px; height: 40px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-cta { display: none; }
+      .nav-links { display: none; }
+      #mobile-menu-btn { display: flex; }
+      .hero { grid-template-columns: 1fr; padding: 56px 20px 48px; gap: 36px; } .hero-title { font-size: 34px; }
+      .section, .section-alt, .section-dark { padding: 52px 20px; }
+      .story-grid { grid-template-columns: 1fr; gap: 32px; }
+      .story-img { height: 260px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .director-card { grid-template-columns: 1fr; }
+      .director-photo { min-height: 220px; }
+      .director-body { padding: 28px 24px; }
+      .promises-grid { grid-template-columns: 1fr; }
+      .cta-bar { padding: 48px 20px; } .cta-bar-title { font-size: 24px; }
+      .footer { padding: 28px 20px; flex-direction: column; } .footer-info { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.jpg" alt="베어뮤직 실용음악학원" style="height:56px; width:auto; max-width:180px; object-fit:contain;">
+  </a>
+  <ul class="nav-links">
+    <li>
+      <a href="about.html" class="active">학원 소개</a>
+      <div class="nav-dropdown">
+        <a href="about.html">About 베어뮤직</a>
+      </div>
+    </li>
+    <li>
+      <a href="lesson.html">수업 프로그램</a>
+      <div class="nav-dropdown">
+        <div class="dropdown-label">개인 레슨</div>
+        <a href="vocal.html">🎤 보컬</a>
+        <a href="guitar.html">🎸 기타</a>
+        <a href="bass.html">🎵 베이스</a>
+        <a href="piano.html">🎹 건반·피아노</a>
+        <a href="drum.html">🥁 드럼</a>
+      </div>
+    </li>
+    <li>
+      <a href="value.html">가치클래스</a>
+      <div class="nav-dropdown">
+        <a href="value.html#ensemble">🎸 합주 클래스</a>
+        <a href="value.html#group">👥 그룹 클래스</a>
+        <a href="value.html#performance">🎭 공연 클래스</a>
+        <a href="value.html#special">⭐ 특강 클래스</a>
+      </div>
+    </li>
+    <li><a href="scholarship.html">장학제도</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#contact">문의</a></li>
+  </ul>
+  <a href="https://talk.naver.com/ct/w4j779" target="_blank" class="nav-cta">문의하기</a>
+  <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="background:none; border:none; cursor:pointer; padding:8px; flex-direction:column; gap:5px; align-items:center; justify-content:center;" aria-label="메뉴">
+    <span style="display:block; width:22px; height:2px; background:#0f0f0f; border-radius:2px;"></span>
+    <span style="display:block; width:22px; height:2px; background:#0f0f0f; border-radius:2px;"></span>
+    <span style="display:block; width:22px; height:2px; background:#0f0f0f; border-radius:2px;"></span>
+  </button>
+</nav>
+
+<!-- 모바일 메뉴 -->
+<div id="mobile-menu" style="display:none; position:fixed; top:64px; left:0; right:0; background:#fff; border-bottom:1px solid #e0ddd7; z-index:99; padding:16px 24px; box-shadow:0 8px 24px rgba(0,0,0,0.08);">
+  <a href="about.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">학원 소개</a>
+  <a href="lesson.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">수업 프로그램</a>
+  <div style="padding:4px 0 4px 12px; display:flex; flex-direction:column; gap:4px; border-bottom:1px solid #f0ede8;">
+    <a href="vocal.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎤 보컬</a>
+    <a href="guitar.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎸 기타</a>
+    <a href="bass.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎵 베이스</a>
+    <a href="piano.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎹 건반·피아노</a>
+    <a href="drum.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🥁 드럼</a>
+  </div>
+  <a href="value.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">가치클래스</a>
+  <div style="padding:4px 0 4px 12px; display:flex; flex-direction:column; gap:4px; border-bottom:1px solid #f0ede8;">
+    <a href="value.html#ensemble" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎸 합주 클래스</a>
+    <a href="value.html#group" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">👥 그룹 클래스</a>
+    <a href="value.html#performance" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎭 공연 클래스</a>
+    <a href="value.html#special" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">⭐ 특강 클래스</a>
+  </div>
+  <a href="scholarship.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">장학제도</a>
+  <a href="faq.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">FAQ</a>
+  <a href="https://talk.naver.com/ct/w4j779" target="_blank" style="display:block; margin-top:16px; background:#03C75A; color:#fff; text-align:center; padding:14px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none;">네이버 톡톡 문의하기</a>
+</div>
+
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobile-menu');
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('mobile-menu');
+  var btn = document.getElementById('mobile-menu-btn');
+  if (btn && menu && !menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="images/about/hero.jpg" alt="베어뮤직">
+  </div>
+  <div class="hero-content">
+    <div class="hero-label">About Bear Music</div>
+    <div class="hero-title">음악은 같이 할 때<br>더 빛납니다</div>
+    <div class="hero-sub">베어뮤직 실용음악학원 이야기</div>
+    <div class="hero-quote">
+      <p>악보를 못 보셔도 괜찮아요.<br>
+      겁내지 마세요. <strong>저희가 함께 있을 거예요.</strong><br>
+      즐기다 보면 실력까지 늘 거예요.</p>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:22px 24px;">
+        <div style="font-size:13.2px; color:#555; font-weight:300; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px;">우리의 믿음</div>
+        <div style="font-size:18px; color:#ddd; font-weight:400; line-height:1.7;">음악은 <span style="color:#fff; font-weight:700;">같이</span> 할 때 더 빛납니다</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:22px 24px;">
+        <div style="font-size:13.2px; color:#555; font-weight:300; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px;">우리의 약속</div>
+        <div style="font-size:18px; color:#ddd; font-weight:400; line-height:1.7;">입시도, 경쟁도 없는<br><span style="color:#fff; font-weight:700;">취미 전문</span> 음악학원</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:22px 24px;">
+        <div style="font-size:13.2px; color:#555; font-weight:300; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px;">우리의 목표</div>
+        <div style="font-size:18px; color:#ddd; font-weight:400; line-height:1.7;">배우는 게 아니라<br><span style="color:#fff; font-weight:700;">실제로 연주</span>하게 만드는 수업</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section-alt">
+  <div class="section-label">Our Story</div>
+  <div class="section-title">베어뮤직 이야기</div>
+  <div class="section-desc">음악을 통해 사람들이 연결되는 공간을 꿈꾸며 시작했습니다</div>
+  <div class="story-grid">
+    <div class="story-text">
+      <p>베어뮤직은 <strong>"음악은 같이 할 때 더 즐겁다"</strong>는 믿음에서 시작했습니다.</p>
+      <p>악기를 배우고 싶지만 어디서부터 시작해야 할지 모르는 분들, 예전에 배우다 그만둔 분들, 바쁜 일상에서 취미 하나 갖고 싶은 분들 — 그 모든 분들을 위한 공간이 필요하다고 생각했어요.</p>
+      <p>입시도, 경쟁도 없이 순수하게 음악을 즐기는 곳. 혼자 배우고 끝나는 레슨이 아니라 함께 연주하고 무대에 서는 경험까지 — 그게 베어뮤직이 추구하는 것입니다.</p>
+      <p><strong>다양한 취미 중 악기는 창작활동이 병행되는 몇 안 되는 취미입니다.</strong> 음악을 통해 다른 사람들과 교류하고 공감하는 것, 그 즐거움을 모든 분들이 경험하셨으면 합니다.</p>
+    </div>
+    <div class="story-img">
+      <img src="images/about/hero.jpg" alt="베어뮤직 학원 소개">
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section-dark">
+  <div class="section-label" style="color:#555;">What We Pursue</div>
+  <div class="section-title section-title-white">베어뮤직이 추구하는 것</div>
+  <div class="section-desc section-desc-white">우리가 가장 중요하게 생각하는 세 가지</div>
+  <div class="values-grid">
+    <div class="value-card">
+      <span class="value-icon">🎵</span>
+      <div class="value-title">즐거움이 먼저입니다</div>
+      <div class="value-desc">점수도, 입시도, 경쟁도 없습니다. 음악이 부담이 아닌 즐거움이 되는 곳 — 그게 베어뮤직입니다. 틀려도 괜찮고, 천천히 해도 괜찮습니다.</div>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🎸</span>
+      <div class="value-title">함께 연주하는 문화</div>
+      <div class="value-desc">모든 과정은 합주로 마무리됩니다. 혼자 배우고 끝나는 레슨이 아니라 실제로 밴드 안에서 연주하는 경험까지 — 그게 진짜 음악입니다.</div>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">📈</span>
+      <div class="value-title">성장을 기록합니다</div>
+      <div class="value-desc">처음의 모습과 지금을 비교할 수 있도록 매 수업 과정을 기록합니다. 눈으로 확인하는 성장이 지속적인 동기가 됩니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTOR -->
+<section class="section">
+  <div class="section-label">Director & Instructors</div>
+  <div class="section-title">원장 & 강사 소개</div>
+  <div class="section-desc">베어뮤직을 이끌어가는 사람들</div>
+
+  <!-- 원장 -->
+  <div class="director-card">
+    <div class="director-photo"><a href="drum_curriculum.html" style="position:absolute; top:14px; right:14px; z-index:2; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:4px; padding:4px 10px; font-size:12px; color:#fff; text-decoration:none; font-weight:500;">커리큘럼 보기 →</a><img src="images/about/director.jpg" alt="최수영 원장" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.7;">
+      
+      <div class="director-photo-info">
+        <div class="director-photo-name">최수영 원장</div>
+        <div class="director-photo-role">드럼 전문 강사 · 베어뮤직 설립자</div>
+      </div>
+    </div>
+    <div class="director-body">
+      <div class="director-name">최수영 원장 (빅베어)</div>
+      <div class="director-role">드럼 전문 강사 · 베어뮤직 실용음악학원 설립자</div>
+      <div class="director-quote">
+        <p>"음악은 삶의 원동력입니다. 나이에도, 시간에도 구애받지 않고 누구나 음악을 즐길 수 있도록 — 그것이 베어뮤직을 만든 이유입니다."</p>
+      </div>
+      <div class="director-bio">
+        가장 즐거웠던 순간은 언제나 합주할 때였어요. 혼자 연습할 때는 몰랐던 설렘 — 누군가와 박자를 맞추고, 소리가 하나로 합쳐지는 그 순간이요. 그 경험을 모든 수강생에게 드리고 싶어서 베어뮤직을 만들었습니다. 즐거움을 아는 사람이 즐거움을 가르칠 수 있다고 믿습니다.
+      </div>
+      <div class="career-list">
+        <div class="career-item"><span class="career-dot"></span>한국국제대학교 음악학과 졸업</div>
+        <div class="career-item"><span class="career-dot"></span>경상국립대학교 교육대학원 음악교육 졸업</div>
+        <div class="career-item"><span class="career-dot"></span>중등학교 정교사 2급 자격증 (음악)</div>
+        <div class="career-item"><span class="career-dot"></span>문화예술교육사 2급</div>
+        <div class="career-item"><span class="career-dot"></span>경남 지역 문화예술 공연 다수 참여 (드럼 세션)</div>
+        <div class="career-item"><span class="career-dot"></span>진주·경남 지역 문화예술 행사 초청 연주 활동</div>
+        <div class="career-item"><span class="career-dot"></span>부처간 문화조성사업 프로그램 주 강사</div>
+        <div class="career-item"><span class="career-dot"></span>예술로 탐구생활 내손안에 폰케스트라 주 강사</div>
+        <div class="career-item"><span class="career-dot"></span>꿈다락 토요문화학교 프로그램 주 강사</div>
+        <div class="career-item"><span class="career-dot"></span>유아문화예술 프로그램 개발자</div>
+        <div class="career-item"><span class="career-dot"></span>경남지역 다수 초·중·고 밴드 강사 (2014~현재)</div>
+        <div class="career-item"><span class="career-dot"></span>베어뮤직 실용음악학원 설립 및 운영 (2020~현재)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 강사 3명 -->
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:20px; align-items:start;">
+
+    <a href="guitar.html" style="text-decoration:none; display:block; background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-lg); overflow:hidden; transition:transform 0.2s, border-color 0.2s; cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#a09d97';" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='#e0ddd7';">
+      <div style="height:300px; background:#0d1a0d; display:flex; align-items:flex-end; padding:20px; position:relative;"><img src="images/about/instructor_guitar.jpg" alt="김창세 강사" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%;">
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);"></div>
+        <div style="position:relative; z-index:1;">
+          <div style="font-size:18px; font-weight:700; color:#fff;">김창세 강사</div>
+          <div style="font-size:13.2px; color:#aaa; font-weight:300; margin-top:2px;">기타 · 베이스</div>
+        </div>
+        <div style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); border-radius:4px; padding:3px 8px; font-size:12px; color:#ccc; font-weight:400;">커리큘럼 보기 →</div>
+      </div>
+      <div style="padding:22px;">
+        <div style="font-size:15.6px; color:var(--gray-600); line-height:1.8; font-weight:300;">기초부터 밴드 연주까지 자연스럽게 연결하는 현악기 레슨. 어렵게 느껴지는 부분도 실제 곡 안에서 쉽게 이해되도록 돕습니다.</div>
+        <div style="margin-top:14px; display:inline-block; background:var(--gray-50); border-radius:6px; padding:8px 14px; font-size:13.2px; color:var(--gray-600);">추천 대상: 취미 기타 · 밴드 연주 입문자</div>
+      </div>
+    </a>
+
+    <a href="piano.html" style="text-decoration:none; display:block; background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-lg); overflow:hidden; transition:transform 0.2s, border-color 0.2s; cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#a09d97';" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='#e0ddd7';">
+      <div style="height:200px; background:#0d1020; display:flex; align-items:flex-end; padding:20px; position:relative;"><img src="images/about/instructor_piano.jpg" alt="남선미 강사" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);"></div>
+        <div style="position:relative; z-index:1;">
+          <div style="font-size:18px; font-weight:700; color:#fff;">남선미 강사</div>
+          <div style="font-size:13.2px; color:#aaa; font-weight:300; margin-top:2px;">건반 · 피아노</div>
+        </div>
+        <div style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); border-radius:4px; padding:3px 8px; font-size:12px; color:#ccc; font-weight:400;">커리큘럼 보기 →</div>
+      </div>
+      <div style="padding:22px;">
+        <div style="font-size:15.6px; color:var(--gray-600); line-height:1.8; font-weight:300;">기초 이론과 반주를 함께 익히며 음악 이해를 넓히는 수업. 처음 시작하는 분도 음악이 훨씬 친숙해지도록 안내합니다.</div>
+        <div style="margin-top:14px; display:inline-block; background:var(--gray-50); border-radius:6px; padding:8px 14px; font-size:13.2px; color:var(--gray-600);">추천 대상: 건반 입문자 · 코드 이해가 필요한 분</div>
+      </div>
+    </a>
+
+    <a href="vocal.html" style="text-decoration:none; display:block; background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-lg); overflow:hidden; transition:transform 0.2s, border-color 0.2s; cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#a09d97';" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='#e0ddd7';">
+      <div style="height:300px; background:#1a1020; display:flex; align-items:flex-end; padding:20px; position:relative;"><img src="images/about/instructor_vocal.jpg" alt="최하나 강사" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);"></div>
+        <div style="position:relative; z-index:1;">
+          <div style="font-size:18px; font-weight:700; color:#fff;">최하나 강사</div>
+          <div style="font-size:13.2px; color:#aaa; font-weight:300; margin-top:2px;">보컬</div>
+        </div>
+        <div style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); border-radius:4px; padding:3px 8px; font-size:12px; color:#ccc; font-weight:400;">커리큘럼 보기 →</div>
+      </div>
+      <div style="padding:22px;">
+        <div style="font-size:15.6px; color:var(--gray-600); line-height:1.8; font-weight:300;">자신의 목소리를 편안하게 찾고 표현할 수 있도록 돕는 보컬 레슨. 잘 부르는 것보다 먼저, 편하게 내는 것에서 시작합니다.</div>
+        <div style="margin-top:14px; display:inline-block; background:var(--gray-50); border-radius:6px; padding:8px 14px; font-size:13.2px; color:var(--gray-600);">추천 대상: 보컬 초보 · 자신 있게 노래하고 싶은 분</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- 이런 분들께 추천합니다 -->
+<section class="section-alt">
+  <div style="max-width:900px; margin:0 auto; padding:0 40px;">
+    <div class="section-label">For You</div>
+    <div class="section-title" style="margin-bottom:8px;">이런 분들께 추천합니다</div>
+    <div class="section-desc" style="margin-bottom:32px;">악기를 처음 배우는 분, 혼자 배우다 포기했던 분, 실제로 함께 연주해보고 싶은 분에게 베어뮤직은 더 잘 맞습니다.</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+      <div style="background:var(--gray-50); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:28px;">
+        <div style="font-size:28px; margin-bottom:14px;">🎵</div>
+        <div style="font-size:17px; font-weight:700; color:var(--gray-800); margin-bottom:10px;">악기를 처음 배우는 분</div>
+        <div style="font-size:14px; color:var(--gray-600); line-height:1.8; font-weight:300;">무엇부터 시작해야 할지 몰라도 괜찮아요. 기초부터 차근차근, 개인의 속도에 맞춰 진행합니다.</div>
+      </div>
+      <div style="background:var(--gray-50); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:28px;">
+        <div style="font-size:28px; margin-bottom:14px;">🔄</div>
+        <div style="font-size:17px; font-weight:700; color:var(--gray-800); margin-bottom:10px;">혼자 배우다 멈췄던 분</div>
+        <div style="font-size:14px; color:var(--gray-600); line-height:1.8; font-weight:300;">혼자 연습만 하다 포기했다면, 레슨과 합주를 함께 경험하며 재미를 다시 찾을 수 있습니다.</div>
+      </div>
+      <div style="background:var(--gray-50); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:28px;">
+        <div style="font-size:28px; margin-bottom:14px;">🎸</div>
+        <div style="font-size:17px; font-weight:700; color:var(--gray-800); margin-bottom:10px;">실제로 연주해보고 싶은 분</div>
+        <div style="font-size:14px; color:var(--gray-600); line-height:1.8; font-weight:300;">개인레슨에서 끝나지 않고, 정기 합주와 공연 경험까지 연결되는 수업 구조를 만듭니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISES -->
+<section class="section-alt">
+  <div class="section-label">Our Promise</div>
+  <div class="section-title">베어뮤직의 약속</div>
+  <div class="section-desc">수강생 여러분께 드리는 네 가지 약속</div>
+  <div class="promises-grid">
+    <div class="promise-card">
+      <div class="promise-num">01</div>
+      <div class="promise-title">수준에 맞는 키워드 레슨</div>
+      <div class="promise-desc">입문자부터 재학습자까지, 한 분 한 분의 과정에 맞춰 수업을 진행합니다. 쉬다 오셔도 기억날 수 있게 모든 수업 자료를 기록·보관합니다.</div>
+    </div>
+    <div class="promise-card">
+      <div class="promise-num">02</div>
+      <div class="promise-title">맞춤 자료 제작</div>
+      <div class="promise-desc">일방적인 영상 레슨이 아닌, 배우시는 과정과 원하는 곡의 악보 편곡까지 모든 원생의 자료를 맞춤으로 제공합니다.</div>
+    </div>
+    <div class="promise-card">
+      <div class="promise-num">03</div>
+      <div class="promise-title">실전 합주 경험</div>
+      <div class="promise-desc">모든 과정은 합주로 마무리됩니다. 메트로놈·음원 합주와는 다른 실제 합주를 통해 진짜 연주의 즐거움을 경험합니다.</div>
+    </div>
+    <div class="promise-card">
+      <div class="promise-num">04</div>
+      <div class="promise-title">지속적인 동기 부여</div>
+      <div class="promise-desc">장학제도, 성장 기록, 정기 공연까지 — 꾸준히 음악을 이어갈 수 있도록 다양한 방법으로 함께 응원합니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bar">
+  <div class="cta-bar-title">베어뮤직과 함께<br>음악을 시작해보세요</div>
+  <div class="cta-bar-desc">겁내지 마세요. 저희가 함께 있을 거예요.<br>📞 055-763-1120 · 010-6370-1120</div>
+  <div class="cta-btns">
+    <a href="https://talk.naver.com/ct/w4j779" target="_blank" class="btn-green" style="background:#03C75A;">네이버 톡톡 문의</a>
+    <a href="index.html" class="btn-outline">메인으로 돌아가기</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <img src="images/logo.jpg" alt="베어뮤직 실용음악학원" style="height:72px; width:auto; margin-bottom:8px; display:block;">
+    <div class="footer-tagline">베어뮤직 실용음악학원 · 진주시 동진로 38, 5층 · 교육청등록번호 제2853호</div>
+  </div>
+  <div>
+    <div class="footer-info">
+      전화: 055-763-1120 · 010-6370-1120<br>
+      운영시간: 평일 14:00 – 22:00 · 토 10:00 – 18:00<br>
+      인스타그램 @bear_music_1120
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+(function() {
+  var timers = {};
+  document.querySelectorAll('.nav-links li').forEach(function(li, i) {
+    var dd = li.querySelector('.nav-dropdown');
+    if (!dd) return;
+    li.addEventListener('mouseenter', function() { clearTimeout(timers[i]); dd.style.display = 'block'; });
+    li.addEventListener('mouseleave', function() { timers[i] = setTimeout(function() { dd.style.display = 'none'; }, 200); });
+    dd.addEventListener('mouseenter', function() { clearTimeout(timers[i]); });
+    dd.addEventListener('mouseleave', function() { timers[i] = setTimeout(function() { dd.style.display = 'none'; }, 200); });
+  });
+})();
+</script>
+</body>
+</html>

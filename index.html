@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="aef3fe43ccbc9eb9395d3459f735d1cabffd7280" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <title>베어뮤직 실용음악학원 | 진주</title>
+  <meta name="description" content="진주 베어뮤직 실용음악학원 — 드럼, 기타, 보컬, 베이스, 건반. 체계적인 커리큘럼과 1:1 맞춤 레슨.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0f0f0f;
+      --white: #ffffff;
+      --gray-50: #f9f8f6;
+      --gray-100: #f0ede8;
+      --gray-200: #e0ddd7;
+      --gray-400: #a09d97;
+      --gray-600: #6b6864;
+      --gray-800: #2c2c2a;
+      --accent: #1a1a1a;
+      --green: #4ade80;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: var(--gray-800);
+      background: var(--gray-50);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 36px; height: 36px;
+      background: var(--black);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .nav-logo-text { font-size: 15px; font-weight: 700; color: var(--black); }
+    .nav-logo-sub { font-size: 10px; color: var(--gray-400); font-weight: 300; margin-top: 1px; }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--gray-600);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--black); }
+
+    
+    /* 드롭다운 */
+    .nav-links li { position: relative; }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: #fff;
+      border: 1px solid #e0ddd7;
+      border-radius: 12px;
+      padding: 6px 0;
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      z-index: 200;
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 9px 16px;
+      font-size: 13px;
+      color: #6b6864;
+      text-decoration: none;
+      font-weight: 400;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown a:hover { background: #f9f8f6; color: #0f0f0f; }
+    .nav-dropdown .dropdown-divider { height: 1px; background: #f0ede8; margin: 4px 0; }
+    .nav-dropdown .dropdown-label {
+      padding: 8px 16px 4px;
+      font-size: 10px;
+      color: #a09d97;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    #mobile-menu-btn { display: none; }
+    .nav-cta {
+      background: #03C75A;
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 9px 20px;
+      font-size: 13px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.8; }
+    .nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+
+    /* ── HERO ── */
+    .hero::before { content:""; position:absolute; inset:0; background:url("images/home/hero.jpg") center/cover no-repeat; opacity:0.18; filter:grayscale(30%); z-index:0; }
+    .hero {
+      background: var(--black);
+      color: #fff;
+      padding: 88px 40px 80px;
+      display: flex;
+      flex-direction: row;
+      gap: 56px;
+      align-items: center;
+      min-height: 500px;
+      position: relative; overflow: hidden;
+    }
+    .hero > div:first-child { flex: 1; }
+    .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .hero-stats { flex-shrink: 0; width: 420px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 11px;
+      color: #ccc;
+      font-weight: 300;
+      margin-bottom: 22px;
+    }
+    .hero-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .hero-title-ko {
+      font-size: 18px;
+      font-weight: 300;
+      color: #888;
+      margin-bottom: 24px;
+    }
+    .hero-desc {
+      font-size: 14px;
+      color: #999;
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 36px;
+      max-width: 400px;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-white {
+      background: #fff; color: #000;
+      border: none; border-radius: var(--radius-sm);
+      padding: 13px 26px; font-size: 13px; font-weight: 700;
+      font-family: 'Noto Sans KR', sans-serif;
+      cursor: pointer; text-decoration: none; display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .btn-white:hover { opacity: 0.85; }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-sm);
+      padding: 13px 26px; font-size: 13px; font-weight: 400;
+      font-family: 'Noto Sans KR', sans-serif;
+      cursor: pointer; text-decoration: none; display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.06); }
+
+    /* Hero stats */
+    .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      padding: 22px 18px;
+    }
+    .stat-card.wide {
+      grid-column: span 2;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 700;
+      color: #03C75A; line-height: 1; margin-bottom: 6px;
+    }
+    .stat-label { font-size: 13px; color: #ccc; font-weight: 400; }
+    .stat-wide-text { font-size: 13px; color: #999; font-weight: 300; }
+    .stat-badge {
+      background: rgba(74,222,128,0.15);
+      color: var(--green);
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 11px; font-weight: 500;
+    }
+
+    /* ── SECTION BASE ── */
+    .section { padding: 72px 40px; }
+    .section-alt { padding: 72px 40px; background: #fff; }
+    .section-dark { padding: 72px 40px; background: var(--black); color: #fff; }
+    .section-label {
+      font-size: 10px; font-weight: 500;
+      color: var(--gray-400); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 28px; font-weight: 700;
+      color: var(--gray-800); margin-bottom: 6px; letter-spacing: -0.3px;
+    }
+    .section-title-white { color: #fff; }
+    .section-desc {
+      font-size: 14px; color: var(--gray-400);
+      font-weight: 300; margin-bottom: 36px;
+    }
+    .section-desc-white { color: #777; }
+
+    /* ── INSTRUMENTS ── */
+    .instruments-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+    .instr-card {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 24px 12px 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .instr-card:hover {
+      border-color: var(--gray-400);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+    .instr-emoji { font-size: 30px; display: block; margin-bottom: 10px; }
+    .instr-name { font-size: 12px; font-weight: 700; color: var(--gray-800); display: block; margin-bottom: 3px; }
+    .instr-sub { font-size: 10px; color: var(--gray-400); font-weight: 300; }
+
+    /* ── WHY ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .why-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      transition: border-color 0.2s;
+    }
+    .why-card:hover { border-color: var(--gray-400); }
+    .why-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px; font-weight: 700;
+      color: var(--gray-800); opacity: 0.1;
+      line-height: 1; margin-bottom: 16px;
+    }
+    .why-title { font-size: 15px; font-weight: 700; color: var(--gray-800); margin-bottom: 10px; }
+    .why-desc { font-size: 13px; color: var(--gray-600); line-height: 1.8; font-weight: 300; }
+
+    /* ── PROGRAMS ── */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .prog-card {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .prog-card:hover { border-color: var(--gray-400); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+    .prog-thumb {
+      height: 110px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px; position: relative;
+    }
+    .prog-thumb.t1 { background: #0f0f0f; }
+    .prog-thumb.t2 { background: #0d1225; }
+    .prog-thumb.t3 { background: #0d1f18; }
+    .prog-tag {
+      position: absolute; top: 10px; left: 10px;
+      background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85);
+      border-radius: 4px; padding: 2px 9px;
+      font-size: 10px; font-weight: 500;
+    }
+    .prog-body { padding: 18px; }
+    .prog-title { font-size: 14px; font-weight: 700; color: var(--gray-800); margin-bottom: 5px; }
+    .prog-desc { font-size: 12px; color: var(--gray-600); line-height: 1.7; font-weight: 300; margin-bottom: 14px; }
+    .prog-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+    .chip {
+      background: var(--gray-100); border: 1px solid var(--gray-200);
+      border-radius: 4px; padding: 2px 8px;
+      font-size: 10px; color: var(--gray-600); font-weight: 500;
+    }
+
+    /* ── ATELIER ── */
+    .atelier-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .atelier-label { font-size: 10px; font-weight: 500; letter-spacing: 2px; color: #555; text-transform: uppercase; margin-bottom: 12px; }
+    .atelier-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 700;
+      color: #fff; margin-bottom: 10px; letter-spacing: -0.3px; line-height: 1.2;
+    }
+    .atelier-desc { font-size: 14px; color: #888; font-weight: 300; line-height: 1.8; margin-bottom: 28px; }
+    .atelier-feats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 32px;
+    }
+    .atelier-feat {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .atelier-feat strong { display: block; color: #fff; font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+    .atelier-feat span { font-size: 12px; color: #777; font-weight: 300; }
+    .atelier-visual {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      height: 320px;
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+    }
+    .atelier-floor-big {
+      font-family: 'Playfair Display', serif;
+      font-size: 80px; font-weight: 700;
+      color: rgba(255,255,255,0.06); line-height: 1;
+    }
+    .atelier-floor-label { font-size: 11px; color: #6b6864; letter-spacing: 3px; font-weight: 300; }
+
+    /* ── SCHOLARSHIP ── */
+    .sch-box {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .sch-intro-title { font-size: 20px; font-weight: 700; color: var(--gray-800); margin-bottom: 10px; letter-spacing: -0.2px; }
+    .sch-intro-desc { font-size: 13px; color: var(--gray-600); line-height: 1.8; font-weight: 300; }
+    .sch-highlight { color: var(--gray-800); font-weight: 500; }
+    .sch-tracks { display: flex; gap: 14px; }
+    .sch-track {
+      flex: 1;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+    .sch-track-icon { font-size: 22px; display: block; margin-bottom: 10px; }
+    .sch-track-name { font-size: 14px; font-weight: 700; color: var(--gray-800); margin-bottom: 6px; }
+    .sch-track-desc { font-size: 12px; color: var(--gray-600); line-height: 1.7; font-weight: 300; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--black);
+      padding: 64px 40px;
+      text-align: center;
+    }
+    .cta-banner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; letter-spacing: -0.3px;
+    }
+    .cta-banner-desc { font-size: 14px; color: #888; font-weight: 300; margin-bottom: 32px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-kakao {
+      background: #03C75A; color: #fff;
+      border: none; border-radius: var(--radius-sm);
+      padding: 14px 28px; font-size: 13px; font-weight: 700;
+      font-family: 'Noto Sans KR', sans-serif;
+      cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 7px;
+      transition: opacity 0.2s;
+    }
+    .btn-kakao:hover { opacity: 0.9; }
+    .btn-insta {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #fff;
+      border: none; border-radius: var(--radius-sm);
+      padding: 14px 28px; font-size: 13px; font-weight: 700;
+      font-family: 'Noto Sans KR', sans-serif;
+      cursor: pointer; text-decoration: none; display: inline-flex;
+      align-items: center; gap: 8px;
+      transition: opacity 0.2s;
+    }
+    .btn-insta:hover { opacity: 0.88; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #fff;
+      padding: 40px;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      border-top: 1px solid #e0ddd7;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-left {}
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; color: #fff; font-weight: 700; margin-bottom: 6px;
+    }
+    .footer-tagline { font-size: 11px; color: #6b6864; font-weight: 300; }
+    .footer-right { text-align: right; }
+    .footer-info { font-size: 11px; color: #6b6864; line-height: 2; font-weight: 300; }
+    .footer-copy { font-size: 10px; color: #a09d97; margin-top: 8px; font-weight: 300; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      #mobile-menu-btn { display: flex; }
+      .nav-mobile-btn { display: block; }
+.hero { flex-direction: column !important; padding: 52px 20px 48px !important; gap: 24px !important; }
+      .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .hero-stats { width: 100% !important; }
+      .reviews-grid { grid-template-columns: 1fr !important; }
+      .hero-title { font-size: 38px; }
+      .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+
+      .section, .section-alt, .section-dark { padding: 52px 20px; }
+
+      .instruments-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .why-grid { grid-template-columns: 1fr; gap: 12px; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .atelier-inner { grid-template-columns: 1fr; }
+      .atelier-visual { height: 180px; }
+      .sch-box { grid-template-columns: 1fr; }
+      .sch-tracks { flex-direction: column; }
+
+      .cta-banner { padding: 52px 20px; }
+      .cta-banner-title { font-size: 26px; }
+
+      .footer { padding: 32px 20px; flex-direction: column; }
+      .footer-right { text-align: left; }
+      .group-banner { flex-direction: column !important; gap: 20px !important; padding: 24px 20px !important; }
+      .group-banner-text { font-size: 20px !important; }
+      .group-banner-sub { font-size: 13px !important; }
+      .group-banner-btn { margin-left: 0 !important; width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <img src="images/logo.jpg" alt="베어뮤직 실용음악학원" style="height:56px; width:auto; max-width:180px; object-fit:contain;">
+  </a>
+  <ul class="nav-links">
+    <li>
+      <a href="about.html">학원 소개</a>
+      <div class="nav-dropdown">
+        <a href="about.html">About 베어뮤직</a>
+      </div>
+    </li>
+    <li>
+      <a href="lesson.html">수업 프로그램</a>
+      <div class="nav-dropdown">
+        <div class="dropdown-label">개인 레슨</div>
+        <a href="vocal.html">🎤 보컬</a>
+        <a href="guitar.html">🎸 기타</a>
+        <a href="bass.html">🎵 베이스</a>
+        <a href="piano.html">🎹 건반·피아노</a>
+        <a href="drum.html">🥁 드럼</a>
+      </div>
+    </li>
+    <li>
+      <a href="value.html">가치클래스</a>
+      <div class="nav-dropdown">
+        <a href="value.html#ensemble">🎸 합주 클래스</a>
+        <a href="value.html#group">👥 그룹 클래스</a>
+        <a href="value.html#performance">🎭 공연 클래스</a>
+        <a href="value.html#special">⭐ 특강 클래스</a>
+      </div>
+    </li>
+    <li><a href="scholarship.html">장학제도</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="#contact">문의</a></li>
+  </ul>
+  <a href="https://talk.naver.com/ct/w4j779" target="_blank" class="nav-cta">문의하기</a>
+  <button class="nav-mobile-btn" id="mobile-menu-btn" onclick="toggleMobileMenu()">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="3" width="20" height="2" rx="1" fill="#333"/><rect y="9" width="20" height="2" rx="1" fill="#333"/><rect y="15" width="20" height="2" rx="1" fill="#333"/></svg>
+  </button>
+</nav>
+
+<!-- 모바일 메뉴 -->
+<div id="mobile-menu" style="display:none; position:fixed; top:64px; left:0; right:0; background:#fff; border-bottom:1px solid #e0ddd7; z-index:99; padding:16px 24px; box-shadow:0 8px 24px rgba(0,0,0,0.08);">
+  <a href="about.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">학원 소개</a>
+  <a href="lesson.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">수업 프로그램</a>
+  <div style="padding:4px 0 4px 12px; display:flex; flex-direction:column; gap:4px; border-bottom:1px solid #f0ede8;">
+    <a href="vocal.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎤 보컬</a>
+    <a href="guitar.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎸 기타</a>
+    <a href="bass.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎵 베이스</a>
+    <a href="piano.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎹 건반·피아노</a>
+    <a href="drum.html" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🥁 드럼</a>
+  </div>
+  <a href="value.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">가치클래스</a>
+  <div style="padding:4px 0 4px 12px; display:flex; flex-direction:column; gap:4px; border-bottom:1px solid #f0ede8;">
+    <a href="value.html#ensemble" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎸 합주 클래스</a>
+    <a href="value.html#group" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">👥 그룹 클래스</a>
+    <a href="value.html#performance" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">🎭 공연 클래스</a>
+    <a href="value.html#special" style="font-size:13px; color:#6b6864; text-decoration:none; padding:4px 0;">⭐ 특강 클래스</a>
+  </div>
+  <a href="scholarship.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">장학제도</a>
+  <a href="faq.html" style="display:block; padding:12px 0; font-size:15px; color:#2c2c2a; text-decoration:none; border-bottom:1px solid #f0ede8; font-weight:500;">FAQ</a>
+  <a href="https://talk.naver.com/ct/w4j779" target="_blank" style="display:block; margin-top:16px; background:#03C75A; color:#fff; text-align:center; padding:14px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none;">네이버 톡톡 문의하기</a>
+</div>
+
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobile-menu');
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('mobile-menu');
+  var btn = document.getElementById('mobile-menu-btn');
+  if (!menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <div style="position:relative; z-index:1;">
+    <div class="hero-badge">
+      <span class="hero-dot"></span>
+      진주 대표 실용음악학원
+    </div>
+    <div class="hero-title">Bear Music</div>
+    <div class="hero-title-ko">음악을 진지하게, 즐겁게 배우는 곳</div>
+    <p class="hero-desc">
+      드럼부터 기타, 보컬, 베이스, 건반까지.<br>
+      체계적인 커리큘럼과 검증된 강사진이<br>
+      여러분의 음악 여정을 함께합니다.
+    </p>
+    <div class="hero-btns">
+      <a href="https://talk.naver.com/ct/w4j779" target="_blank" class="btn-white" style="background:#03C75A; color:#fff;">문의하기</a>
+      <a href="#programs" class="btn-outline">프로그램 보기</a>
+    </div>
+  </div>
+  <div class="hero-stats" style="position:relative; z-index:1;">
+    <div class="stat-card">
+      <div class="stat-num">1:1</div>
+      <div class="stat-label">맞춤 개인 레슨</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">월 6회</div>
+      <div class="stat-label">정기 합주 수업</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">연 2회</div>
+      <div class="stat-label">정기 공연 경험</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3가지</div>
+      <div class="stat-label">장학 혜택</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUMENTS -->
+<section class="section-alt" id="about">
+  <div class="section-label">Instruments</div>
+  <div class="section-title">배우고 싶은 악기를 골라보세요</div>
+  <div class="section-desc">각 악기별 맞춤 커리큘럼으로 초보부터 심화까지 단계적으로 배울 수 있습니다</div>
+  <div class="instruments-grid">
+    <a href="drum.html" class="instr-card">
+      <span class="instr-emoji">🥁</span>
+      <span class="instr-name">드럼</span>
+      <span class="instr-sub">초·중·고급 과정</span>
+    </a>
+    <a href="guitar.html" class="instr-card">
+      <span class="instr-emoji">🎸</span>
+      <span class="instr-name">기타</span>
+      <span class="instr-sub">통기타·일렉</span>
+    </a>
+    <a href="piano.html" class="instr-card">
+      <span class="instr-emoji">🎹</span>
+      <span class="instr-name">건반·피아노</span>
+      <span class="instr-sub">실용·코드 반주</span>
+    </a>
+    <a href="vocal.html" class="instr-card">
+      <span class="instr-emoji">🎤</span>
+      <span class="instr-name">보컬</span>
+      <span class="instr-sub">팝·R&B·뮤지컬</span>
+    </a>
+    <a href="bass.html" class="instr-card">
+      <span class="instr-emoji">🎵</span>
+      <span class="instr-name">베이스</span>
+      <span class="instr-sub">기초~심화</span>
+    </a>
+    <a href="#atelier" class="instr-card">
+      <span class="instr-emoji">🎶</span>
+      <span class="instr-name">합주·밴드</span>
+      <span class="instr-sub">정기 합주 수업</span>
+    </a>
+  </div>
+
+  <!-- 악기 추천 퀴즈 -->
+  <div style="margin-top: 20px; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); overflow: hidden; background: #fff;">
+    <div style="padding: 20px 24px; border-bottom: 1px solid var(--gray-100); display: flex; align-items: center; justify-content: space-between; cursor: pointer;" onclick="toggleQuiz()">
+      <div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--gray-800);">🎵 아직 악기를 못 정했다면?</div>
+        <div style="font-size: 12px; color: var(--gray-400); font-weight: 300; margin-top: 3px;">10가지 질문으로 나에게 맞는 악기를 찾아드릴게요</div>
+      </div>
+      <div id="quiz-arrow" style="font-size: 18px; color: var(--gray-400); transition: transform 0.25s;">﹀</div>
+    </div>
+    <div id="quiz-panel" style="display: none; padding: 28px 24px;">
+      <div id="quiz-wrap-main">
+        <div style="margin-bottom: 20px;">
+          <div style="height: 4px; background: var(--gray-100); border-radius: 2px; margin-bottom: 10px;">
+            <div id="quiz-progress" style="height: 4px; background: var(--gray-800); border-radius: 2px; width: 10%; transition: width 0.3s;"></div>
+          </div>
+          <div id="quiz-step" style="font-size: 12px; color: var(--gray-400);">1 / 10</div>
+        </div>
+        <div id="quiz-question" style="font-size: 16px; font-weight: 700; color: var(--gray-800); margin-bottom: 20px; line-height: 1.6;"></div>
+        <div id="quiz-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;"></div>
+        <div style="margin-top: 16px;">
+          <button id="quiz-back" onclick="quizBack()" style="font-size: 12px; color: var(--gray-400); background: none; border: none; cursor: pointer; padding: 0; visibility: hidden;">← 이전</button>
+        </div>
+      </div>
+      <div id="quiz-result-main" style="display: none;">
+        <div style="text-align: center; padding: 16px 0 24px;">
+          <div style="font-size: 11px; color: var(--gray-400); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;">추천 악기</div>
+          <div id="res-emoji" style="font-size: 52px; margin-bottom: 14px;"></div>
+          <div id="res-name" style="font-size: 22px; font-weight: 700; color: var(--gray-800); margin-bottom: 8px;"></div>
+          <div id="res-desc" style="font-size: 13px; color: var(--gray-600); line-height: 1.8; font-weight: 300; max-width: 380px; margin: 0 auto;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+          <div style="background: var(--gray-50); border-radius: var(--radius-md); padding: 14px 16px;">
+            <div style="font-size: 10px; color: var(--gray-400); margin-bottom: 4px;">이런 분께 잘 맞아요</div>
+            <div id="res-fit" style="font-size: 13px; font-weight: 700; color: var(--gray-800);"></div>
+          </div>
+          <div style="background: var(--gray-50); border-radius: var(--radius-md); padding: 14px 16px;">
+            <div style="font-size: 10px; color: var(--gray-400); margin-bottom: 4px;">예상 성취 시기</div>
+            <div id="res-time" style="font-size: 13px; font-weight: 700; color: var(--gray-800);"></div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+          <a id="res-link" href="#" style="flex:1; padding:13px; background:var(--gray-800); color:#fff; border:none; border-radius:var(--radius-sm); font-size:19px; font-weight:700; font-family:'Noto Sans KR',sans-serif; text-align:center; text-decoration:none; display:block;">커리큘럼 보러가기 →</a>
+          <button onclick="quizRetry()" style="flex:1; padding:13px; background:none; color:var(--gray-800); border:1px solid var(--gray-200); border-radius:var(--radius-sm); font-size:19px; font-family:'Noto Sans KR',sans-serif; cursor:pointer;">다시 해보기</button>
+        </div>
+        <div>
+          <div style="font-size:16px; color:var(--gray-400); margin-bottom:8px;">다른 악기도 살펴보세요</div>
+          <div id="res-also" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+const quizQuestions = [
+  { q: "음악을 배우려는 가장 큰 이유는?", opts: [
+    { text: "좋아하는 노래를 직접 연주하고 싶어서", tags: {guitar:2,piano:2,bass:1} },
+    { text: "밴드나 합주를 해보고 싶어서", tags: {drum:2,bass:2,guitar:1} },
+    { text: "노래를 더 잘하고 싶어서", tags: {vocal:3} },
+    { text: "그냥 악기 하나 배워보고 싶어서", tags: {guitar:1,piano:1,drum:1,bass:1,vocal:1} }
+  ]},
+  { q: "음악을 들을 때 가장 먼저 귀에 들어오는 소리는?", opts: [
+    { text: "드럼 · 리듬 · 박자", tags: {drum:3} },
+    { text: "멜로디 · 보컬 라인", tags: {vocal:2,piano:1} },
+    { text: "기타 · 현악기 소리", tags: {guitar:3} },
+    { text: "베이스 · 낮은 음역대", tags: {bass:3} }
+  ]},
+  { q: "좋아하는 음악 장르는?", opts: [
+    { text: "팝 · 발라드 · R&B", tags: {vocal:2,piano:2} },
+    { text: "록 · 메탈 · 펑크", tags: {guitar:2,drum:2,bass:1} },
+    { text: "재즈 · 블루스 · 소울", tags: {piano:2,guitar:1,bass:1} },
+    { text: "장르 상관없이 다 좋아요", tags: {guitar:1,drum:1,piano:1,bass:1,vocal:1} }
+  ]},
+  { q: "어떤 스타일로 음악을 즐기고 싶나요?", opts: [
+    { text: "혼자 연주하며 감성에 빠지고 싶다", tags: {piano:2,guitar:2} },
+    { text: "밴드의 중심이 되고 싶다", tags: {drum:3,bass:2} },
+    { text: "목소리로 사람들을 감동시키고 싶다", tags: {vocal:3} },
+    { text: "여러 악기와 함께 연주하고 싶다", tags: {guitar:1,bass:2,drum:1} }
+  ]},
+  { q: "신체적으로 어떤 활동이 더 잘 맞나요?", opts: [
+    { text: "손가락 · 양손 조화가 자신있다", tags: {piano:2,guitar:2} },
+    { text: "온몸으로 리듬을 타는 게 좋다", tags: {drum:3} },
+    { text: "목소리 · 호흡 관리에 자신있다", tags: {vocal:3} },
+    { text: "손목 · 팔 근력이 있다", tags: {bass:2,guitar:1} }
+  ]},
+  { q: "악기를 배워서 어떤 상황에서 쓰고 싶나요?", opts: [
+    { text: "카페 · 집에서 혼자 연주", tags: {piano:2,guitar:2} },
+    { text: "밴드 · 합주 무대에서 연주", tags: {drum:2,bass:2,guitar:1} },
+    { text: "노래 부를 때 자기 반주", tags: {guitar:2,piano:1} },
+    { text: "공연 · 발표회 · 버스킹", tags: {vocal:2,guitar:1,drum:1} }
+  ]},
+  { q: "연습 환경은 어떤가요?", opts: [
+    { text: "집에서 조용히 연습 가능", tags: {piano:2,guitar:1,vocal:1} },
+    { text: "소리 크기 상관없이 연습 가능", tags: {drum:2,bass:1,guitar:1} },
+    { text: "학원에서만 연습할 것 같다", tags: {drum:2,bass:1} },
+    { text: "어디서든 틈틈이 연습하고 싶다", tags: {vocal:2,guitar:1} }
+  ]},
+  { q: "롤모델이나 좋아하는 뮤지션 스타일은?", opts: [
+    { text: "IU · 감성 싱어송라이터", tags: {vocal:2,piano:1,guitar:1} },
+    { text: "록 기타리스트 · 밴드 리더", tags: {guitar:3} },
+    { text: "드러머 · 비트 메이커", tags: {drum:3} },
+    { text: "베이시스트 · 슬랩 연주자", tags: {bass:3} }
+  ]},
+  { q: "처음 악기를 배울 때 가장 중요한 건?", opts: [
+    { text: "빠르게 곡을 연주하고 싶다", tags: {guitar:2,piano:1,vocal:1} },
+    { text: "탄탄한 기초부터 차근차근", tags: {piano:2,drum:1,bass:1} },
+    { text: "리듬감 · 박자감을 먼저 키우고 싶다", tags: {drum:3,bass:1} },
+    { text: "발성 · 음정부터 잡고 싶다", tags: {vocal:3} }
+  ]},
+  { q: "지금 이 순간 가장 끌리는 악기는?", opts: [
+    { text: "기타 (멋있어 보여서)", tags: {guitar:3} },
+    { text: "드럼 (신나 보여서)", tags: {drum:3} },
+    { text: "피아노 · 건반 (우아해 보여서)", tags: {piano:3} },
+    { text: "보컬 · 베이스 (내 스타일)", tags: {vocal:2,bass:2} }
+  ]}
+];
+
+const quizInstruments = {
+  guitar: { name: "기타", emoji: "🎸", desc: "감성적인 코드 반주부터 화려한 솔로까지. 어디서든 꺼내 연주할 수 있는 자유로운 악기예요.", url: "guitar.html", fit: "혼자서도, 밴드에서도", time: "3개월이면 첫 곡 완성" },
+  drum:   { name: "드럼", emoji: "🥁", desc: "온몸으로 리듬을 만드는 악기. 밴드의 심장이자 가장 신나는 악기입니다.", url: "drum.html", fit: "밴드·합주의 중심", time: "1개월이면 기본 비트 가능" },
+  piano:  { name: "건반·피아노", emoji: "🎹", desc: "멜로디와 화음을 동시에 — 가장 완성도 높은 솔로 악기예요.", url: "piano.html", fit: "혼자 연주하기 최적", time: "2개월이면 코드 반주 가능" },
+  bass:   { name: "베이스", emoji: "🎵", desc: "밴드의 숨겨진 주인공. 묵직한 그루브로 음악의 기반을 만드는 악기입니다.", url: "bass.html", fit: "합주·밴드의 핵심", time: "2개월이면 기본 라인 완성" },
+  vocal:  { name: "보컬", emoji: "🎤", desc: "악기를 따로 준비하지 않아도 되는 유일한 악기, 바로 목소리입니다.", url: "vocal.html", fit: "어디서든 혼자서도", time: "1개월이면 발성 기초 완성" }
+};
+
+let qCurrent = 0, qAnswers = [], qScores = {guitar:0,drum:0,piano:0,bass:0,vocal:0};
+
+function toggleQuiz() {
+  const panel = document.getElementById('quiz-panel');
+  const arrow = document.getElementById('quiz-arrow');
+  const open = panel.style.display === 'none';
+  panel.style.display = open ? 'block' : 'none';
+  arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+  if (open && qCurrent === 0) quizRender();
+}
+
+function quizRender() {
+  const q = quizQuestions[qCurrent];
+  document.getElementById('quiz-question').textContent = q.q;
+  document.getElementById('quiz-step').textContent = (qCurrent+1) + ' / ' + quizQuestions.length;
+  document.getElementById('quiz-progress').style.width = ((qCurrent+1)/quizQuestions.length*100) + '%';
+  document.getElementById('quiz-back').style.visibility = qCurrent > 0 ? 'visible' : 'hidden';
+  const opts = document.getElementById('quiz-options');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.textContent = o.text;
+    btn.style.cssText = 'padding:12px 14px; border:1px solid ' + (qAnswers[qCurrent]===i ? '#2c2c2a' : '#e0ddd7') + '; border-radius:10px; background:' + (qAnswers[qCurrent]===i ? '#f0ede8' : '#fff') + '; font-size:19px; color:#2c2c2a; cursor:pointer; text-align:left; font-family:Noto Sans KR,sans-serif; line-height:1.5; width:100%;';
+    btn.onclick = () => quizSelect(i);
+    opts.appendChild(btn);
+  });
+}
+
+function quizSelect(i) {
+  if (qAnswers[qCurrent] !== undefined) {
+    const prev = quizQuestions[qCurrent].opts[qAnswers[qCurrent]].tags;
+    for (const k in prev) qScores[k] -= prev[k];
+  }
+  qAnswers[qCurrent] = i;
+  const tags = quizQuestions[qCurrent].opts[i].tags;
+  for (const k in tags) qScores[k] = (qScores[k]||0) + tags[k];
+  setTimeout(() => {
+    if (qCurrent < quizQuestions.length - 1) { qCurrent++; quizRender(); }
+    else quizShowResult();
+  }, 260);
+}
+
+function quizBack() {
+  if (qCurrent > 0) {
+    if (qAnswers[qCurrent] !== undefined) {
+      const prev = quizQuestions[qCurrent].opts[qAnswers[qCurrent]].tags;
+      for (const k in prev) qScores[k] -= prev[k];
+      qAnswers[qCurrent] = undefined;
+    }
+    qCurrent--; quizRender();
+  }
+}
+
+function quizShowResult() {
+  const top = Object.entries(qScores).sort((a,b) => b[1]-a[1]);
+  const best = quizInstruments[top[0][0]];
+  const second = quizInstruments[top[1][0]];
+  const third = quizInstruments[top[2][0]];
+  document.getElementById('quiz-wrap-main').style.display = 'none';
+  document.getElementById('quiz-result-main').style.display = 'block';
+  document.getElementById('res-emoji').textContent = best.emoji;
+  document.getElementById('res-name').textContent = best.name;
+  document.getElementById('res-desc').textContent = best.desc;
+  document.getElementById('res-fit').textContent = best.fit;
+  document.getElementById('res-time').textContent = best.time;
+  document.getElementById('res-link').href = best.url;
+  const also = document.getElementById('res-also');
+  also.innerHTML = '';
+  [second, third].forEach(inst => {
+    const tag = document.createElement('span');
+    tag.textContent = inst.emoji + ' ' + inst.name;
+    tag.style.cssText = 'background:#f0ede8; border:1px solid #e0ddd7; border-radius:20px; padding:4px 14px; font-size:17px; color:#6b6864; cursor:pointer; display:inline-block;';
+    tag.onclick = () => { window.location.href = inst.url; };
+    also.appendChild(tag);
+  });
+}
+
+function quizRetry() {
+  qCurrent=0; qAnswers=[]; qScores={guitar:0,drum:0,piano:0,bass:0,vocal:0};
+  document.getElementById('quiz-result-main').style.display = 'none';
+  document.getElementById('quiz-wrap-main').style.display = 'block';
+  quizRender();
+}
+</script>
+
+<!-- GROUP CLASS BANNER -->
+<section class="section-alt" style="padding-top:0; padding-bottom:32px;">
+  <a href="value.html"
+    class="group-banner" style="display:flex; align-items:center; justify-content:space-between; background:#0f0f0f; border-radius:var(--radius-lg); padding:28px 36px; text-decoration:none; transition:opacity 0.2s;"
+    onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+    <div style="display:flex; align-items:center; gap:20px;">
+      <div style="width:10px; height:10px; border-radius:50%; background:#03C75A; flex-shrink:0;"></div>
+      <div>
+        <div style="font-size:14px; color:#555; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; font-weight:500;">Group Class · 모집 중</div>
+        <div class="group-banner-text" style="font-size:26px; font-weight:700; color:#fff; margin-bottom:8px;">그룹 클래스 지금 신청 가능합니다</div>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <span class="group-banner-sub" style="font-size:19px; color:#aaa; font-weight:300;">🎸 통기타 그룹 — 매주 금요일 오후 7시</span>
+          <span style="font-size:19px; color:#555;">|</span>
+          <span class="group-banner-sub" style="font-size:19px; color:#aaa; font-weight:300;">🎹 피아노 반주법 그룹 — 매주 수요일 오후 7시</span>
+        </div>
+      </div>
+    </div>
+    <div class="group-banner-btn" style="flex-shrink:0; margin-left:24px; background:#03C75A; color:#fff; border-radius:var(--radius-sm); padding:10px 20px; font-size:16px; font-weight:700; font-family:'Noto Sans KR',sans-serif; white-space:nowrap;">
+      자세히 보기 →
+    </div>
+  </a>
+</section>
+
+<!-- WHY -->
+<section class="section">
+  <div class="section-label">Why Bear Music</div>
+  <div class="section-title">베어뮤직을 선택하는 이유</div>
+  <div class="section-desc">단순한 레슨이 아닌, 진짜 음악 경험을 만들어드립니다</div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <div class="why-title">여기선 틀려도 괜찮아요</div>
+      <div class="why-desc">점수도, 입시도, 경쟁도 없습니다. 음악이 부담이 아닌 즐거움이 되는 곳 — 그게 베어뮤직입니다.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <div class="why-title">레슨비 하나에 다 들어있어요</div>
+      <div class="why-desc">개인 레슨 + 정기 합주 + 특강까지. 다른 학원에서 따로 돈 내야 하는 것들이 베어뮤직에선 처음부터 포함입니다.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <div class="why-title">배우는 게 아니라, 연주하게 됩니다</div>
+      <div class="why-desc">6개월 후엔 밴드 안에서 실제로 연주하고 있을 거예요. 혼자 배우고 끝나는 레슨이 아닙니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="section-alt" id="programs">
+  <div class="section-label">Programs</div>
+  <div class="section-title">주요 수업 프로그램</div>
+  <div class="section-desc">목표와 일정에 맞는 다양한 과정을 선택할 수 있습니다</div>
+  <div class="programs-grid">
+    <a href="lesson.html" class="prog-card" style="text-decoration:none; display:block;">
+      <div class="prog-thumb t1" style="background:#000; overflow:hidden;">
+        <img src="images/home/program_lessen.jpg" alt="개인 레슨" style="width:100%; height:100%; object-fit:cover; opacity:0.7; position:absolute; inset:0;">
+        <span class="prog-tag" style="position:absolute;">대표 과정</span>
+      </div>
+      <div class="prog-body">
+        <div class="prog-title">개인 악기 레슨</div>
+        <div class="prog-desc">드럼·기타·베이스·보컬·건반 전 악기 1:1 개인 레슨. 수준과 목표에 맞는 맞춤형 커리큘럼으로 진행됩니다.</div>
+        <div class="prog-chips">
+          <span class="chip">1:1 개인레슨</span>
+          <span class="chip">초~고급</span>
+          <span class="chip">월 단위 수강</span>
+        </div>
+      </div>
+    </a>
+    <a href="value.html" class="prog-card" style="text-decoration:none; display:block;">
+      <div class="prog-thumb t2" style="background:#000; overflow:hidden;">
+        <img src="images/home/hero.jpg" alt="합주 클래스" style="width:100%; height:100%; object-fit:cover; opacity:0.7; position:absolute; inset:0;">
+        <span class="prog-tag" style="position:absolute;">정기 운영</span>
+      </div>
+      <div class="prog-body">
+        <div class="prog-title">합주 클래스</div>
+        <div class="prog-desc">매월 2·4주차 화·수·목 저녁 8시. 드럼·기타·보컬·베이스가 함께하는 정기 합주 수업입니다.</div>
+        <div class="prog-chips">
+          <span class="chip">다인 앙상블</span>
+          <span class="chip">월 6회</span>
+          <span class="chip">수강료 포함</span>
+        </div>
+      </div>
+    </a>
+    <a href="value.html" onclick="setTimeout(function(){var b=document.getElementById('tab-group');if(b)b.click();},400)" class="prog-card" style="text-decoration:none; display:block;">
+      <div class="prog-thumb t3" style="background:#000; overflow:hidden;">
+        <img src="images/home/program_group.jpg" alt="그룹 클래스" style="width:100%; height:100%; object-fit:cover; opacity:0.7; position:absolute; inset:0;">
+        <span class="prog-tag" style="position:absolute;">모집 중</span>
+      </div>
+      <div class="prog-body">
+        <div class="prog-title">그룹 클래스</div>
+        <div class="prog-desc">통기타(금요일)·피아노 반주법(수요일) 소그룹 12주 완성 과정. 같은 목표를 가진 분들과 함께 빠르게 성장합니다.</div>
+        <div class="prog-chips">
+          <span class="chip">소그룹 3~5인</span>
+          <span class="chip">12주 완성</span>
+          <span class="chip">기수제 모집</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ENSEMBLE -->
+<section class="section-dark" id="atelier">
+  <div class="atelier-inner">
+    <div>
+      <div class="atelier-label">Ensemble Class</div>
+      <div class="atelier-title">정기 합주 수업</div>
+      <div class="atelier-desc">
+        개인 레슨에서 배운 것을 함께 연주하는 시간.<br>
+        드럼·기타·베이스·보컬이 하나의 밴드로 완성됩니다.
+      </div>
+      <div class="atelier-feats">
+        <div class="atelier-feat">
+          <strong>정기 진행</strong>
+          <span>매월 2·4주차 화·수·목 저녁 8시</span>
+        </div>
+        <div class="atelier-feat">
+          <strong>월 6회 운영</strong>
+          <span>한 달 총 6회 합주 수업</span>
+        </div>
+        <div class="atelier-feat">
+          <strong>전 악기 참여</strong>
+          <span>드럼·기타·베이스·보컬·건반</span>
+        </div>
+        <div class="atelier-feat">
+          <strong>실전 경험</strong>
+          <span>발표회·공연 무대 연계</span>
+        </div>
+        <div class="atelier-feat">
+          <strong>합주왕 장학</strong>
+          <span>참여 시 장학 혜택 적용</span>
+        </div>
+      </div>
+      <a href="value.html" class="btn-white">합주 수업 자세히 보기</a>
+    </div>
+    <div class="atelier-visual" style="position:relative; overflow:hidden;">
+      <img src="images/home/hero.jpg" alt="합주 수업" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.3;">
+      <div style="position:relative; z-index:1; text-align:center;">
+        <div class="atelier-floor-big">Band</div>
+        <div class="atelier-floor-label">ENSEMBLE CLASS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-alt">
+  <div style="max-width:1100px; margin:0 auto; padding:0 40px;">
+    <div class="section-label">Reviews</div>
+    <div class="section-title" style="margin-bottom:6px;">먼저 시작한 수강생들의 이야기</div>
+    <div class="section-desc" style="margin-bottom:32px;">베어뮤직을 경험한 수강생들의 솔직한 후기예요</div>
+    <div class="reviews-grid">
+      <div style="background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:28px;">
+        <div style="font-size:22px; margin-bottom:16px;">⭐⭐⭐⭐⭐</div>
+        <div style="font-size:16px; font-weight:700; color:var(--gray-800); margin-bottom:10px;">"처음인데도 부담이 적었어요"</div>
+        <div style="font-size:14px; color:var(--gray-600); line-height:1.8; font-weight:300;">악기를 처음 배우는데도 단계별로 알려주셔서 겁먹지 않고 시작할 수 있었어요.</div>
+      </div>
+      <div style="background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:28px;">
+        <div style="font-size:22px; margin-bottom:16px;">⭐⭐⭐⭐⭐</div>
+        <div style="font-size:16px; font-weight:700; color:var(--gray-800); margin-bottom:10px;">"합주까지 이어져서 더 재미있어요"</div>
+        <div style="font-size:14px; color:var(--gray-600); line-height:1.8; font-weight:300;">혼자 배우는 줄 알았는데 다른 사람들과 같이 맞추는 시간이 있어서 계속 다니게 됩니다.</div>
+      </div>
+      <div style="background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:28px;">
+        <div style="font-size:22px; margin-bottom:16px;">⭐⭐⭐⭐⭐</div>
+        <div style="font-size:16px; font-weight:700; color:var(--gray-800); margin-bottom:10px;">"취미였는데 무대 경험까지 했어요"</div>
+        <div style="font-size:14px; color:var(--gray-600); line-height:1.8; font-weight:300;">취미로 시작했는데 연주 경험까지 연결돼서 스스로도 많이 달라졌다고 느껴요.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOLARSHIP -->
+<section class="section-alt" id="scholarship">
+  <div class="section-label">Scholarship</div>
+  <div class="section-title">베어뮤직 장학 제도</div>
+  <div class="section-desc">열심히 하는 수강생을 응원하는 베어뮤직만의 혜택입니다</div>
+  <div class="sch-box">
+    <div>
+      <div class="sch-intro-title">3가지 트랙,<br>중복 혜택 가능</div>
+      <div class="sch-intro-desc" style="margin-top:12px;">
+        출석, 합주 참여, 성장 기록—<br>
+        노력하는 수강생에게<br>
+        <span class="sch-highlight">수강료 할인 혜택</span>을<br>
+        드립니다.
+      </div>
+    </div>
+    <div class="sch-tracks">
+      <div class="sch-track">
+        <span class="sch-track-icon">📅</span>
+        <div class="sch-track-name">출석왕 장학</div>
+        <div class="sch-track-desc">한 달 개인레슨 4회 동안 지각·결석·일정 변경 없이 출석 완료 시 혜택 제공</div>
+      </div>
+      <div class="sch-track">
+        <span class="sch-track-icon">🎸</span>
+        <div class="sch-track-name">합주왕 장학</div>
+        <div class="sch-track-desc">매월 2·4주차 화·수·목 저녁 8시에 진행되는 합주 수업(월 6회) 중 2회 이상 참석 시 혜택 제공</div>
+      </div>
+      <div class="sch-track">
+        <span class="sch-track-icon">🎤</span>
+        <div class="sch-track-name">연주왕 장학</div>
+        <div class="sch-track-desc">나의 성장 과정을 기록하는 트랙 — 1분 내외 연주 영상을 오픈카톡으로 전송하면 완료</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contact">
+  <div class="section-label" style="color:#555; margin-bottom:12px;">Contact</div>
+  <div class="cta-banner-title">지금 시작해보세요</div>
+  <div class="cta-banner-desc">궁금한 점은 네이버 톡톡 또는 전화로 편하게 문의해 주세요.<br style="display:none"> 📞 055-763-1120 · 010-6370-1120</div>
+  <div class="cta-btns">
+    <a href="https://talk.naver.com/ct/w4j779" target="_blank" class="btn-kakao" style="background:#03C75A; border:none;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3C6.477 3 2 6.72 2 11.3c0 2.9 1.7 5.45 4.3 7.05L5.1 21l4.05-2.15c.9.2 1.85.3 2.85.3 5.523 0 10-3.72 10-8.3S17.523 3 12 3z" fill="#000"/></svg>
+      네이버 톡톡 문의
+    </a>
+    <a href="https://instagram.com/bear_music_1120" target="_blank" class="btn-insta">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg>
+      인스타그램 @bear_music_1120
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <img src="images/logo.jpg" alt="베어뮤직 실용음악학원" style="height:72px; width:auto; margin-bottom:8px; display:block;">
+    <div class="footer-tagline">베어뮤직 실용음악학원 · 진주시 동진로 38, 5층 · 교육청등록번호 제2853호</div>
+  </div>
+  <div class="footer-right">
+    <div class="footer-info">
+      주소: 진주시 동진로 38, 5층<br>
+      전화: 055-763-1120 · 010-6370-1120<br>
+      운영시간: 평일 14:00 – 22:00 · 토 10:00 – 18:00<br>
+      인스타그램 @bear_music_1120
+    </div>
+    <div class="footer-copy">© 2025 Bear Music Academy. All rights reserved.</div>
+  </div>
+</footer>
+
+
+
+<script>
+(function() {
+  var timers = {};
+  document.querySelectorAll('.nav-links li').forEach(function(li, i) {
+    var dd = li.querySelector('.nav-dropdown');
+    if (!dd) return;
+    li.addEventListener('mouseenter', function() { clearTimeout(timers[i]); dd.style.display = 'block'; });
+    li.addEventListener('mouseleave', function() { timers[i] = setTimeout(function() { dd.style.display = 'none'; }, 200); });
+    dd.addEventListener('mouseenter', function() { clearTimeout(timers[i]); });
+    dd.addEventListener('mouseleave', function() { timers[i] = setTimeout(function() { dd.style.display = 'none'; }, 200); });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>드럼 커리큘럼 | 베어뮤직 실용음악학원</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  :root {
+    --bear-brown: #3D2B1F;
+    --bear-warm: #C4874A;
+    --bear-gold: #E8A84C;
+    --bear-cream: #FAF5EE;
+    --bear-light: #F5EDE0;
+    --bear-muted: #8B6F5E;
+    --lv1: #4A7C59;
+    --lv2: #5B6FA8;
+    --lv3: #A07840;
+    --lv4: #B05A3A;
+    --lv5: #8A4A6A;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bear-cream);
+    color: var(--bear-brown);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--bear-brown);
+    color: var(--bear-cream);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '🐻';
+    position: absolute;
+    font-size: 200px;
+    opacity: 0.05;
+    top: -30px;
+    right: -20px;
+  }
+  .hero-label {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--bear-gold);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .hero h1 em {
+    color: var(--bear-gold);
+    font-style: italic;
+  }
+  .hero p {
+    font-size: 15px;
+    color: #c9bfb5;
+    max-width: 480px;
+    margin: 0 auto 32px;
+    line-height: 1.8;
+  }
+  .hero-tags {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-tag {
+    font-size: 12px;
+    padding: 5px 14px;
+    border: 1px solid rgba(232,168,76,0.4);
+    border-radius: 20px;
+    color: var(--bear-gold);
+    letter-spacing: 0.05em;
+  }
+
+  /* Intro */
+  .intro {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 24px 40px;
+    text-align: center;
+  }
+  .intro-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--bear-brown);
+  }
+  .intro p {
+    font-size: 14px;
+    color: var(--bear-muted);
+    line-height: 1.9;
+  }
+
+  /* Level overview strip */
+  .level-strip {
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 0 24px;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .level-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--bear-light);
+    color: var(--bear-brown);
+    border: 1.5px solid transparent;
+    transition: all 0.2s;
+  }
+  .level-chip .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+  .lv1-chip { border-color: var(--lv1); }
+  .lv1-chip .dot { background: var(--lv1); }
+  .lv2-chip { border-color: var(--lv2); }
+  .lv2-chip .dot { background: var(--lv2); }
+  .lv3-chip { border-color: var(--lv3); }
+  .lv3-chip .dot { background: var(--lv3); }
+  .lv4-chip { border-color: var(--lv4); }
+  .lv4-chip .dot { background: var(--lv4); }
+  .lv5-chip { border-color: var(--lv5); }
+  .lv5-chip .dot { background: var(--lv5); }
+
+  /* Level cards */
+  .levels {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .level-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(61,43,31,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .level-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(61,43,31,0.10);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+  }
+  .lv1 .card-header { background: linear-gradient(135deg, #4A7C59 0%, #3d6649 100%); }
+  .lv2 .card-header { background: linear-gradient(135deg, #5B6FA8 0%, #4a5c92 100%); }
+  .lv3 .card-header { background: linear-gradient(135deg, #A07840 0%, #8a6535 100%); }
+  .lv4 .card-header { background: linear-gradient(135deg, #B05A3A 0%, #964a2e 100%); }
+  .lv5 .card-header { background: linear-gradient(135deg, #8A4A6A 0%, #733d59 100%); }
+
+  .lv-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 40px;
+    color: rgba(255,255,255,0.25);
+    line-height: 1;
+    min-width: 56px;
+  }
+  .card-header-info { flex: 1; }
+  .card-header-info h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .card-period {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 10px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.05em;
+  }
+
+  .card-body {
+    padding: 22px 28px;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--bear-muted);
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+  .keyword-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .keyword {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--bear-light);
+    color: var(--bear-brown);
+    font-weight: 400;
+  }
+  .lv1 .keyword { background: #eef5f1; color: var(--lv1); }
+  .lv2 .keyword { background: #eef0f8; color: var(--lv2); }
+  .lv3 .keyword { background: #f7f1e8; color: var(--lv3); }
+  .lv4 .keyword { background: #f8efeb; color: var(--lv4); }
+  .lv5 .keyword { background: #f5eef2; color: var(--lv5); }
+
+  .units-preview {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--bear-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .unit-dot {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 500;
+    color: #fff;
+  }
+  .lv1 .unit-dot { background: var(--lv1); }
+  .lv2 .unit-dot { background: var(--lv2); }
+  .lv3 .unit-dot { background: var(--lv3); }
+  .lv4 .unit-dot { background: var(--lv4); }
+  .lv5 .unit-dot { background: var(--lv5); }
+  .unit-dot-label {
+    font-size: 11px;
+    color: var(--bear-muted);
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+  }
+
+  /* Total period bar */
+  .period-section {
+    max-width: 860px;
+    margin: 0 auto 80px;
+    padding: 0 24px;
+  }
+  .period-title {
+    font-size: 13px;
+    color: var(--bear-muted);
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .period-bar {
+    display: flex;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 48px;
+  }
+  .period-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 500;
+    transition: flex 0.3s;
+  }
+  .period-seg span { opacity: 0.9; }
+  .ps1 { background: var(--lv1); flex: 4; }
+  .ps2 { background: var(--lv2); flex: 6; }
+  .ps3 { background: var(--lv3); flex: 6; }
+  .ps4 { background: var(--lv4); flex: 5; }
+  .ps5 { background: var(--lv5); flex: 8; }
+  .period-labels {
+    display: flex;
+    margin-top: 8px;
+    gap: 0;
+  }
+  .period-label {
+    font-size: 11px;
+    color: var(--bear-muted);
+    text-align: center;
+  }
+  .pl1 { flex:4; } .pl2 { flex:6; } .pl3 { flex:6; } .pl4 { flex:5; } .pl5 { flex:8; }
+
+  /* CTA */
+  .cta {
+    background: var(--bear-brown);
+    text-align: center;
+    padding: 60px 24px;
+    color: var(--bear-cream);
+  }
+  .cta h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .cta p { font-size: 14px; color: #c9bfb5; margin-bottom: 24px; }
+  .cta-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--bear-gold);
+    color: var(--bear-brown);
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  /* Animation */
+  .level-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.5s forwards;
+  }
+  .level-card:nth-child(1) { animation-delay: 0.1s; }
+  .level-card:nth-child(2) { animation-delay: 0.2s; }
+  .level-card:nth-child(3) { animation-delay: 0.3s; }
+  .level-card:nth-child(4) { animation-delay: 0.4s; }
+  .level-card:nth-child(5) { animation-delay: 0.5s; }
+  @keyframes fadeUp {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 60px 24px 48px; }
+    .card-header { padding: 20px 20px; }
+    .card-body { padding: 18px 20px; }
+    .period-bar { height: 36px; }
+    .period-seg { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-label">Bear Music 드럼 레슨</div>
+  <h1>처음부터 <em>제대로</em>,<br>취미도 체계 있게</h1>
+  <p>History · Theory · Performance<br>베어뮤직 5-Level 드럼 커리큘럼</p>
+  <div class="hero-tags">
+    <span class="hero-tag">1:1 Private Lesson</span>
+    <span class="hero-tag">Flexible Progression</span>
+    <span class="hero-tag">Theory + Performance</span>
+    <span class="hero-tag">Weekly Song Application</span>
+  </div>
+</section>
+
+<!-- Intro -->
+<div class="intro">
+  <h2 class="intro-title">5 Levels of Drumming</h2>
+  <p>입문부터 중고급까지, 레벨별 명확한 학습 목표와 성취 기준<br>
+  선호 곡 기반 실전 적용 · 단계별 체계적 성장</p>
+</div>
+
+<!-- Level chips -->
+<div class="level-strip">
+  <div class="level-chip lv1-chip"><span class="dot"></span>Lv.1 입문</div>
+  <div class="level-chip lv2-chip"><span class="dot"></span>Lv.2 초급</div>
+  <div class="level-chip lv3-chip"><span class="dot"></span>Lv.3 초중급</div>
+  <div class="level-chip lv4-chip"><span class="dot"></span>Lv.4 중급</div>
+  <div class="level-chip lv5-chip"><span class="dot"></span>Lv.5 중고급</div>
+</div>
+
+<!-- Level Cards -->
+<div class="levels">
+
+  <div class="level-card lv1">
+    <div class="card-header">
+      <div class="lv-num">01</div>
+      <div class="card-header-info">
+        <h2>기초부터 첫 곡 완성까지</h2>
+        <span class="card-period">3~4개월 · 16단원</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">드럼 역사·이론 · 8비트 기초<br>필인 구성 · 첫 곡 완주</p>
+      <div class="keyword-row">
+        <span class="keyword">스틱 컨트롤</span>
+        <span class="keyword">8비트 그루브</span>
+        <span class="keyword">필인 구성</span>
+        <span class="keyword">곡 적용</span>
+        <span class="keyword">오픈 하이햇</span>
+        <span class="keyword">싱코페이션</span>
+        <span class="keyword">첫 곡 완주</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-card lv2">
+    <div class="card-header">
+      <div class="lv-num">02</div>
+      <div class="card-header-info">
+        <h2>16분음표와 양손 하이햇</h2>
+        <span class="card-period">약 6개월 · 6단원 + 예제 연습 4회</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">16분음표 기술 · 즉각적 곡 적용<br>16비트 킥 패턴 · 양손 하이햇</p>
+      <div class="keyword-row">
+        <span class="keyword">16분음표</span>
+        <span class="keyword">16비트 킥 패턴</span>
+        <span class="keyword">양손 하이햇</span>
+        <span class="keyword">엇박 타이밍</span>
+        <span class="keyword">단원별 예제곡</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-card lv3">
+    <div class="card-header">
+      <div class="lv-num">03</div>
+      <div class="card-header-info">
+        <h2>하이햇 변형과 액센트, 원핸드까지</h2>
+        <span class="card-period">약 6개월 · 10단원</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">하이햇 변형 · 액센트 제어 · 메트릭 모듈레이션<br>하프타임·더블타임 · 원핸드 기법</p>
+      <div class="keyword-row">
+        <span class="keyword">하이햇 변형</span>
+        <span class="keyword">탭·다운·업·풀 스트로크</span>
+        <span class="keyword">메트릭 모듈레이션</span>
+        <span class="keyword">하프타임·더블타임</span>
+        <span class="keyword">원핸드 하이햇</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-card lv4">
+    <div class="card-header">
+      <div class="lv-num">04</div>
+      <div class="card-header-info">
+        <h2>더블 스트로크, 고스트 노트, 셔플</h2>
+        <span class="card-period">약 5개월 · 8단원</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">고스트 노트 그루브 · 셔플 스윙감<br>체인지업 1~8연음 · 홑박자·겹박자</p>
+      <div class="keyword-row">
+        <span class="keyword">더블 스트로크</span>
+        <span class="keyword">5·7 스트로크 롤</span>
+        <span class="keyword">고스트 노트</span>
+        <span class="keyword">체인지업</span>
+        <span class="keyword">셔플 그루브</span>
+        <span class="keyword">홑박자·겹박자</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-card lv5">
+    <div class="card-header">
+      <div class="lv-num">05</div>
+      <div class="card-header-info">
+        <h2>하프타임 셔플과 루디먼트 심화</h2>
+        <span class="card-period">약 8개월 · 5단원</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">하프타임 셔플 · 6연음 액센트<br>파라디들 변형 · 플램 루디먼트</p>
+      <div class="keyword-row">
+        <span class="keyword">하프타임 셔플</span>
+        <span class="keyword">6연음 액센트</span>
+        <span class="keyword">6연음 파라디들</span>
+        <span class="keyword">플램 파라디들</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Skill Tree -->
+<div style="max-width:860px;margin:0 auto 60px;padding:0 24px;">
+  <div style="text-align:center;margin-bottom:24px;">
+    <div style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:var(--bear-brown);margin-bottom:8px;">학습 구조</div>
+    <div style="font-size:14px;color:var(--bear-muted);">Hands · Feet · Independence — 세 트랙이 레벨마다 깊어집니다</div>
+  </div>
+  <div style="background:#fff;border-radius:20px;box-shadow:0 2px 20px rgba(61,43,31,0.06);overflow:hidden;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;min-height:480px;">
+      <!-- 스킬트리 SVG -->
+      <div style="border-right:1px solid var(--bear-light);padding:8px 0;">
+        <svg width="100%" viewBox="0 0 340 460" style="display:block;">
+          <defs>
+            <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+          <rect x="8" y="48" width="324" height="100" rx="8" fill="#F5EDE0" opacity="0.6"/>
+          <rect x="8" y="168" width="324" height="100" rx="8" fill="#F5EDE0" opacity="0.5"/>
+          <rect x="8" y="288" width="324" height="100" rx="8" fill="#F5EDE0" opacity="0.4"/>
+
+          <rect x="10" y="80" width="44" height="36" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+          <text x="32" y="93" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#085041">Hands</text>
+          <text x="32" y="106" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#085041">손</text>
+
+          <rect x="10" y="200" width="44" height="36" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="0.5"/>
+          <text x="32" y="213" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#712B13">Feet</text>
+          <text x="32" y="226" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#712B13">발</text>
+
+          <rect x="10" y="318" width="44" height="36" rx="6" fill="#EEEDFE" stroke="#7F77DD" stroke-width="0.5"/>
+          <text x="32" y="329" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" font-weight="500" fill="#26215C">Indep-</text>
+          <text x="32" y="341" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" font-weight="500" fill="#26215C">endence</text>
+
+          <text x="90" y="32" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="10" fill="#8B6F5E">Lv.1</text>
+          <text x="148" y="32" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="10" fill="#8B6F5E">Lv.2</text>
+          <text x="206" y="32" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="10" fill="#8B6F5E">Lv.3</text>
+          <text x="264" y="32" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="10" fill="#8B6F5E">Lv.4</text>
+          <text x="318" y="32" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="10" fill="#8B6F5E">Lv.5</text>
+
+          <line x1="119" y1="40" x2="119" y2="400" stroke="#E0D5C8" stroke-width="0.5" stroke-dasharray="2 3"/>
+          <line x1="177" y1="40" x2="177" y2="400" stroke="#E0D5C8" stroke-width="0.5" stroke-dasharray="2 3"/>
+          <line x1="235" y1="40" x2="235" y2="400" stroke="#E0D5C8" stroke-width="0.5" stroke-dasharray="2 3"/>
+          <line x1="293" y1="40" x2="293" y2="400" stroke="#E0D5C8" stroke-width="0.5" stroke-dasharray="2 3"/>
+
+          <!-- HANDS -->
+          <line x1="120" y1="98" x2="128" y2="98" stroke="#1D9E75" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <line x1="178" y1="98" x2="186" y2="98" stroke="#1D9E75" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <line x1="236" y1="98" x2="244" y2="98" stroke="#1D9E75" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <line x1="294" y1="98" x2="302" y2="98" stroke="#1D9E75" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <rect x="62" y="80" width="58" height="36" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(1)"/>
+          <text x="91" y="94" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#085041" style="pointer-events:none">스틱 컨트롤</text>
+          <text x="91" y="108" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#085041" style="pointer-events:none">오른손·필인</text>
+          <rect x="128" y="80" width="50" height="36" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(2)"/>
+          <text x="153" y="91" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#085041" style="pointer-events:none">16분음표</text>
+          <text x="153" y="103" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#085041" style="pointer-events:none">sticking</text>
+          <text x="153" y="113" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#085041" style="pointer-events:none">H.H var.</text>
+          <rect x="186" y="80" width="50" height="36" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(3)"/>
+          <text x="211" y="91" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#085041" style="pointer-events:none">더블</text>
+          <text x="211" y="103" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#085041" style="pointer-events:none">스트로크</text>
+          <text x="211" y="113" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#085041" style="pointer-events:none">액센트 4종</text>
+          <rect x="244" y="80" width="50" height="36" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(4)"/>
+          <text x="269" y="91" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#085041" style="pointer-events:none">5·7 stroke</text>
+          <text x="269" y="103" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#085041" style="pointer-events:none">roll</text>
+          <text x="269" y="113" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#085041" style="pointer-events:none">고스트노트</text>
+          <rect x="302" y="80" width="28" height="36" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1" style="cursor:pointer" onclick="webDetail(5)"/>
+          <text x="316" y="91" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" font-weight="500" fill="#085041" style="pointer-events:none">플램</text>
+          <text x="316" y="103" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" font-weight="500" fill="#085041" style="pointer-events:none">파라</text>
+          <text x="316" y="113" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#085041" style="pointer-events:none">디들</text>
+
+          <!-- FEET -->
+          <line x1="120" y1="218" x2="128" y2="218" stroke="#D85A30" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <line x1="178" y1="218" x2="186" y2="218" stroke="#D85A30" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <line x1="236" y1="218" x2="244" y2="218" stroke="#D85A30" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <line x1="294" y1="218" x2="302" y2="218" stroke="#D85A30" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <rect x="62" y="200" width="58" height="36" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(1)"/>
+          <text x="91" y="214" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#712B13" style="pointer-events:none">킥 기본</text>
+          <text x="91" y="228" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#712B13" style="pointer-events:none">오픈H.H 페달</text>
+          <rect x="128" y="200" width="50" height="36" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(2)"/>
+          <text x="153" y="211" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#712B13" style="pointer-events:none">16비트 킥</text>
+          <text x="153" y="223" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#712B13" style="pointer-events:none">e·a 타이밍</text>
+          <rect x="186" y="200" width="50" height="36" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(3)"/>
+          <text x="211" y="211" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#712B13" style="pointer-events:none">원핸드+발</text>
+          <text x="211" y="223" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#712B13" style="pointer-events:none">발 독립 훈련</text>
+          <rect x="244" y="200" width="50" height="36" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(4)"/>
+          <text x="269" y="211" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#712B13" style="pointer-events:none">셔플 킥</text>
+          <text x="269" y="223" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#712B13" style="pointer-events:none">홑·겹박자</text>
+          <rect x="302" y="200" width="28" height="36" rx="6" fill="#FAECE7" stroke="#D85A30" stroke-width="1" style="cursor:pointer" onclick="webDetail(5)"/>
+          <text x="316" y="211" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" font-weight="500" fill="#712B13" style="pointer-events:none">하프</text>
+          <text x="316" y="223" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" font-weight="500" fill="#712B13" style="pointer-events:none">타임킥</text>
+
+          <!-- INDEPENDENCE -->
+          <line x1="120" y1="336" x2="128" y2="336" stroke="#7F77DD" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <line x1="178" y1="336" x2="186" y2="336" stroke="#7F77DD" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <line x1="236" y1="336" x2="244" y2="336" stroke="#7F77DD" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <line x1="294" y1="336" x2="302" y2="336" stroke="#7F77DD" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <rect x="62" y="318" width="58" height="36" rx="6" fill="#EEEDFE" stroke="#7F77DD" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(1)"/>
+          <text x="91" y="332" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#26215C" style="pointer-events:none">8비트 기본</text>
+          <text x="91" y="346" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#26215C" style="pointer-events:none">싱코페이션</text>
+          <rect x="128" y="318" width="50" height="36" rx="6" fill="#EEEDFE" stroke="#7F77DD" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(2)"/>
+          <text x="153" y="329" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#26215C" style="pointer-events:none">컴비네이션</text>
+          <text x="153" y="341" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#26215C" style="pointer-events:none">양손 H.H</text>
+          <rect x="186" y="318" width="50" height="36" rx="6" fill="#EEEDFE" stroke="#7F77DD" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(3)"/>
+          <text x="211" y="327" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#26215C" style="pointer-events:none">메트릭</text>
+          <text x="211" y="339" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#26215C" style="pointer-events:none">모듈레이션</text>
+          <text x="211" y="349" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#26215C" style="pointer-events:none">H.H 액센트</text>
+          <rect x="244" y="318" width="50" height="36" rx="6" fill="#EEEDFE" stroke="#7F77DD" stroke-width="0.5" style="cursor:pointer" onclick="webDetail(4)"/>
+          <text x="269" y="329" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="9" font-weight="500" fill="#26215C" style="pointer-events:none">체인지업</text>
+          <text x="269" y="341" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" fill="#26215C" style="pointer-events:none">1~8연음</text>
+          <rect x="302" y="318" width="28" height="36" rx="6" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1" style="cursor:pointer" onclick="webDetail(5)"/>
+          <text x="316" y="329" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" font-weight="500" fill="#26215C" style="pointer-events:none">하프</text>
+          <text x="316" y="341" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="8" font-weight="500" fill="#26215C" style="pointer-events:none">타임셔플</text>
+
+          <!-- 융합 -->
+          <path d="M211 116 L211 200" stroke="#D85A30" stroke-width="0.7" stroke-dasharray="3 3" fill="none" opacity="0.5"/>
+          <path d="M211 236 L211 318" stroke="#7F77DD" stroke-width="0.7" stroke-dasharray="3 3" fill="none" opacity="0.5"/>
+          <path d="M269 116 L269 200" stroke="#D85A30" stroke-width="0.7" stroke-dasharray="3 3" fill="none" opacity="0.5"/>
+          <path d="M269 236 L269 318" stroke="#7F77DD" stroke-width="0.7" stroke-dasharray="3 3" fill="none" opacity="0.5"/>
+          <path d="M316 116 L316 200" stroke="#D85A30" stroke-width="0.7" stroke-dasharray="3 3" fill="none" opacity="0.5"/>
+          <path d="M316 236 L316 318" stroke="#7F77DD" stroke-width="0.7" stroke-dasharray="3 3" fill="none" opacity="0.5"/>
+
+          <text x="170" y="420" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="10" fill="#8B6F5E">레벨을 클릭하면 단원 목록이 표시돼요</text>
+        </svg>
+      </div>
+      <!-- 상세 패널 -->
+      <div id="web-detail" style="padding:24px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:#8B6F5E;font-size:13px;text-align:center;font-family:'Noto Sans KR',sans-serif;">
+        <div style="font-size:28px;opacity:.3;">←</div>
+        <div>레벨 노드를 클릭하면<br>단원 목록이 표시됩니다</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const webData = {
+  1:{lv:'LV.1',title:'기초 8비트와 첫 곡 완성',meta:'3~4개월 · 16단원',color:'#4A7C59',tracks:[
+    {label:'Hands',bg:'#E1F5EE',tc:'#085041',units:[{n:'스틱·드럼 명칭',s:'기초 연주법·반동'},{n:'연속된 오른손 연주',s:'라이드 사용법'},{n:'필인 만들기',s:'4박→1박 필인'}]},
+    {label:'Feet',bg:'#FAECE7',tc:'#712B13',units:[{n:'킥 기본 연주',s:'오픈 H.H 페달 제어'},{n:'오픈 하이햇',s:'박 길이 유지·클로즈드'}]},
+    {label:'Independence',bg:'#EEEDFE',tc:'#26215C',units:[{n:'8비트 기본 패턴',s:'메트로놈·카운트'},{n:'싱코페이션',s:'강-약박 전환'},{n:'곡에 덮어쓰기',s:'8비트+필인 적용'},{n:'예제곡 연습 (1)(2)',s:'디스코·싱코페이션 적용곡'}]},
+  ]},
+  2:{lv:'LV.2',title:'16분음표 & 양손 하이햇',meta:'약 6개월 · 10단원',color:'#5B6FA8',tracks:[
+    {label:'Hands',bg:'#E1F5EE',tc:'#085041',units:[{n:'16분음표 (1)(2)',s:'기본 손모양·필인 적용'},{n:'16분음표 (3)(4)',s:'16킥 패턴·곡 연주'},{n:'H.H variation',s:'하이햇 바리에이션'}]},
+    {label:'Feet',bg:'#FAECE7',tc:'#712B13',units:[{n:'2hands H.H (1)',s:'양손 표현·밸런스'},{n:'2hands H.H (2)',s:'e·a 타이밍 킥 배치'}]},
+    {label:'Independence',bg:'#EEEDFE',tc:'#26215C',units:[{n:'컴비네이션',s:'손·발 조합 패턴'},{n:'H.H variations',s:'단다다·오픈H.H 믹스'},{n:'예제 연습 A~D',s:'단원마다 곡 적용'}]},
+  ]},
+  3:{lv:'LV.3',title:'액센트 제어 & 하프·더블타임',meta:'약 6개월 · 10단원',color:'#A07840',tracks:[
+    {label:'Hands',bg:'#E1F5EE',tc:'#085041',units:[{n:'액센트',s:'탭·다운·업·풀 스트로크'},{n:'액센트 (2)(3)',s:'1ena 타이밍·연결 연주'},{n:'더블 스트로크',s:'감각·5·7 stroke roll'}]},
+    {label:'Feet',bg:'#FAECE7',tc:'#712B13',units:[{n:'One hand H.H (1)',s:'한 손 16분음표'},{n:'One hand H.H (2)',s:'발 넣어보기'}]},
+    {label:'Independence',bg:'#EEEDFE',tc:'#26215C',units:[{n:'메트릭 모듈레이션',s:'3·5 그루핑 체감 전환'},{n:'H.H 액센트 적용',s:'하이햇에 액센트 얹기'},{n:'하프타임·더블타임',s:'흰수염고래 예제곡'}]},
+  ]},
+  4:{lv:'LV.4',title:'고스트노트 & 셔플 그루브',meta:'약 5개월 · 8단원',color:'#B05A3A',tracks:[
+    {label:'Hands',bg:'#E1F5EE',tc:'#085041',units:[{n:'Ghost note',s:'액센트+더블 스트로크 활용'},{n:'곡 적용해보기',s:'배운 기법 실전 적용'}]},
+    {label:'Feet',bg:'#FAECE7',tc:'#712B13',units:[{n:'홑박자·겹박자',s:'3/4 또는 12/8박 연주'},{n:'셔플 리듬 (1)(2)',s:'3연음·하이햇 셔플'}]},
+    {label:'Independence',bg:'#EEEDFE',tc:'#26215C',units:[{n:'체인지업 연습',s:'1~8연음 연결'},{n:'셔플 그루브',s:'스윙감 체득'}]},
+  ]},
+  5:{lv:'LV.5',title:'하프타임 셔플 & 루디먼트 심화',meta:'약 8개월 · 5단원',color:'#8A4A6A',tracks:[
+    {label:'Hands',bg:'#E1F5EE',tc:'#085041',units:[{n:'6연음 싱글 액센트',s:'6연음 기본 패턴'},{n:'6연음 파라디들 액센트',s:'파라디들 구조 적용'},{n:'플램 파라디들',s:'플램 활용 루디먼트'}]},
+    {label:'Feet',bg:'#FAECE7',tc:'#712B13',units:[{n:'하프타임 셔플',s:'하이햇 패턴 익히기'}]},
+    {label:'Independence',bg:'#EEEDFE',tc:'#26215C',units:[{n:'하프타임 셔플 액센트',s:'6연음 기반 구현'},{n:'그루브 완성',s:'합주·공연 레퍼토리'}]},
+  ]},
+};
+function webDetail(lv){
+  const d=webData[lv];
+  let html=`<div style="margin-bottom:16px;"><div style="font-size:11px;font-weight:500;letter-spacing:.1em;color:${d.color};margin-bottom:4px;">${d.lv}</div><div style="font-size:16px;font-weight:500;color:#3D2B1F;margin-bottom:2px;">${d.title}</div><div style="font-size:12px;color:#8B6F5E;">${d.meta}</div></div>`;
+  d.tracks.forEach(t=>{
+    html+=`<div style="margin-bottom:10px;"><span style="font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;background:${t.bg};color:${t.tc};display:inline-block;margin-bottom:5px;">${t.label}</span><div style="display:flex;flex-direction:column;gap:3px;">`;
+    t.units.forEach(u=>{html+=`<div style="font-size:12px;color:#8B6F5E;padding:5px 10px;border-radius:6px;border:0.5px solid #F0E8DA;background:#FAF5EE;"><strong style="color:#3D2B1F;font-weight:500;display:block;font-size:12px;">${u.n}</strong>${u.s}</div>`;});
+    html+=`</div></div>`;
+  });
+  document.getElementById('web-detail').style.cssText='padding:24px;overflow-y:auto;font-family:\'Noto Sans KR\',sans-serif;';
+  document.getElementById('web-detail').innerHTML=html;
+}
+</script>
+
+<!-- Period bar -->
+<div class="period-section">
+  <div class="period-title">총 수강 기간 (약 28~30개월)</div>
+  <div class="period-bar">
+    <div class="period-seg ps1"><span>Lv.1</span></div>
+    <div class="period-seg ps2"><span>Lv.2</span></div>
+    <div class="period-seg ps3"><span>Lv.3</span></div>
+    <div class="period-seg ps4"><span>Lv.4</span></div>
+    <div class="period-seg ps5"><span>Lv.5</span></div>
+  </div>
+  <div class="period-labels">
+    <div class="period-label pl1">3~4개월</div>
+    <div class="period-label pl2">6개월</div>
+    <div class="period-label pl3">6개월</div>
+    <div class="period-label pl4">5개월</div>
+    <div class="period-label pl5">8개월</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h3>지금 시작해도 괜찮아요 🐻</h3>
+  <p class="sub">내 수준 · 내 속도 · 내가 좋아하는 곡으로<br>Your Level · Your Pace · Your Music</p>
+  <a class="cta-btn" href="#">수강 문의하기</a>
+</div>
+
+</body>
+</html>
